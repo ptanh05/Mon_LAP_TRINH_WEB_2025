@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewData["Title"] - DemoLab</title>
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-dark bg-dark">
+            <a class="navbar-brand" href="/">DEMO LAB</a>
+            <a class="nav-link text-white" href="/">Trang chủ</a>
+            <a class="nav-link text-white" href="/Home/GioiThieu">Giới thiệu</a>
+            <a class="nav-link text-white" href="/Home/LienHe">Liên hệ</a>
+            <a class="nav-link text-white" href="/Home/SanPham">Sản phẩm</a>
+        </nav>
+    </header>
+
+    <div class="container mt-3">
+        @RenderBody()
+    </div>
+
+    <footer class="bg-dark text-white text-center p-3 mt-3">
+        <p>© 2025 DemoLab</p>
+    </footer>
+</body>
+</html>

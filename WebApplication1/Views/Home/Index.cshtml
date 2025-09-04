@@ -1,0 +1,26 @@
+﻿@model List<DemoLab.Models.Product>
+
+<div class="row">
+    <div class="col-3">
+        @Html.Partial("_DanhMucPartial")  <!-- Load từ Partial View -->
+    </div>
+    <div class="col-9">
+        <h3>Sản phẩm mới nhất</h3>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-4">
+                    <div class="card">
+                        <img src="@item.HinhAnh" class="card-img-top" />
+                        <div class="card-body">
+                            <p>@item.TenSP</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <h3>Sản phẩm nổi bật</h3>
+        @await Component.InvokeAsync("HotProduct") <!-- Load từ Component -->
+    </div>
+</div>

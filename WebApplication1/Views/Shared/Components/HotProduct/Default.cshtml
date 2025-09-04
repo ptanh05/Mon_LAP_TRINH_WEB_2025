@@ -1,0 +1,15 @@
+﻿@model List<DemoLab.Models.Product>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-4">
+            <div class="card">
+                <img src="@item.HinhAnh" class="card-img-top" />
+                <div class="card-body">
+                    <p>@item.TenSP</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>

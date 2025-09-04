@@ -1,0 +1,215 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\New folder\\laptrinhweb\\DemoLab\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{50A5A959-58D7-4DCB-A1F7-2210F2B4BD74}|DemoLab.csproj|d:\\new folder\\laptrinhweb\\demolab\\controllers\\hotproductviewcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50A5A959-58D7-4DCB-A1F7-2210F2B4BD74}|DemoLab.csproj|solutionrelative:controllers\\hotproductviewcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50A5A959-58D7-4DCB-A1F7-2210F2B4BD74}|DemoLab.csproj|d:\\new folder\\laptrinhweb\\demolab\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50A5A959-58D7-4DCB-A1F7-2210F2B4BD74}|DemoLab.csproj|solutionrelative:models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50A5A959-58D7-4DCB-A1F7-2210F2B4BD74}|DemoLab.csproj|d:\\new folder\\laptrinhweb\\demolab\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{50A5A959-58D7-4DCB-A1F7-2210F2B4BD74}|DemoLab.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50A5A959-58D7-4DCB-A1F7-2210F2B4BD74}|DemoLab.csproj|d:\\new folder\\laptrinhweb\\demolab\\views\\shared\\components\\hotproduct\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{50A5A959-58D7-4DCB-A1F7-2210F2B4BD74}|DemoLab.csproj|solutionrelative:views\\shared\\components\\hotproduct\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50A5A959-58D7-4DCB-A1F7-2210F2B4BD74}|DemoLab.csproj|d:\\new folder\\laptrinhweb\\demolab\\views\\shared\\components\\hotproductviewcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50A5A959-58D7-4DCB-A1F7-2210F2B4BD74}|DemoLab.csproj|solutionrelative:views\\shared\\components\\hotproductviewcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50A5A959-58D7-4DCB-A1F7-2210F2B4BD74}|DemoLab.csproj|d:\\new folder\\laptrinhweb\\demolab\\views\\shared\\_danhmucpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{50A5A959-58D7-4DCB-A1F7-2210F2B4BD74}|DemoLab.csproj|solutionrelative:views\\shared\\_danhmucpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50A5A959-58D7-4DCB-A1F7-2210F2B4BD74}|DemoLab.csproj|d:\\new folder\\laptrinhweb\\demolab\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{50A5A959-58D7-4DCB-A1F7-2210F2B4BD74}|DemoLab.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50A5A959-58D7-4DCB-A1F7-2210F2B4BD74}|DemoLab.csproj|d:\\new folder\\laptrinhweb\\demolab\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50A5A959-58D7-4DCB-A1F7-2210F2B4BD74}|DemoLab.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50A5A959-58D7-4DCB-A1F7-2210F2B4BD74}|DemoLab.csproj|d:\\new folder\\laptrinhweb\\demolab\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{50A5A959-58D7-4DCB-A1F7-2210F2B4BD74}|DemoLab.csproj|solutionrelative:views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50A5A959-58D7-4DCB-A1F7-2210F2B4BD74}|DemoLab.csproj|d:\\new folder\\laptrinhweb\\demolab\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{50A5A959-58D7-4DCB-A1F7-2210F2B4BD74}|DemoLab.csproj|solutionrelative:views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50A5A959-58D7-4DCB-A1F7-2210F2B4BD74}|DemoLab.csproj|d:\\new folder\\laptrinhweb\\demolab\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{50A5A959-58D7-4DCB-A1F7-2210F2B4BD74}|DemoLab.csproj|solutionrelative:views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\New folder\\laptrinhweb\\DemoLab\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\New folder\\laptrinhweb\\DemoLab\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwBIAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-04T13:19:27.641Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Default.cshtml",
+              "DocumentMoniker": "D:\\New folder\\laptrinhweb\\DemoLab\\Views\\Shared\\Components\\HotProduct\\Default.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\Components\\HotProduct\\Default.cshtml",
+              "ToolTip": "D:\\New folder\\laptrinhweb\\DemoLab\\Views\\Shared\\Components\\HotProduct\\Default.cshtml",
+              "RelativeToolTip": "Views\\Shared\\Components\\HotProduct\\Default.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-04T13:19:19.475Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HotProductViewComponent.cs",
+              "DocumentMoniker": "D:\\New folder\\laptrinhweb\\DemoLab\\Controllers\\HotProductViewComponent.cs",
+              "RelativeDocumentMoniker": "Controllers\\HotProductViewComponent.cs",
+              "ToolTip": "D:\\New folder\\laptrinhweb\\DemoLab\\Controllers\\HotProductViewComponent.cs",
+              "RelativeToolTip": "Controllers\\HotProductViewComponent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T13:12:35.88Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Product.cs",
+              "DocumentMoniker": "D:\\New folder\\laptrinhweb\\DemoLab\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "Models\\Product.cs",
+              "ToolTip": "D:\\New folder\\laptrinhweb\\DemoLab\\Models\\Product.cs",
+              "RelativeToolTip": "Models\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T13:17:26.555Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "HotProductViewComponent.cs",
+              "DocumentMoniker": "D:\\New folder\\laptrinhweb\\DemoLab\\Views\\Shared\\Components\\HotProductViewComponent.cs",
+              "RelativeDocumentMoniker": "Views\\Shared\\Components\\HotProductViewComponent.cs",
+              "ToolTip": "D:\\New folder\\laptrinhweb\\DemoLab\\Views\\Shared\\Components\\HotProductViewComponent.cs",
+              "RelativeToolTip": "Views\\Shared\\Components\\HotProductViewComponent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T13:19:07.501Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "_DanhMucPartial.cshtml",
+              "DocumentMoniker": "D:\\New folder\\laptrinhweb\\DemoLab\\Views\\Shared\\_DanhMucPartial.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_DanhMucPartial.cshtml",
+              "ToolTip": "D:\\New folder\\laptrinhweb\\DemoLab\\Views\\Shared\\_DanhMucPartial.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_DanhMucPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-04T13:18:41.077Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\New folder\\laptrinhweb\\DemoLab\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "D:\\New folder\\laptrinhweb\\DemoLab\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-04T13:18:00.308Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\New folder\\laptrinhweb\\DemoLab\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\New folder\\laptrinhweb\\DemoLab\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-04T13:16:59.5Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "_ValidationScriptsPartial.cshtml",
+              "DocumentMoniker": "D:\\New folder\\laptrinhweb\\DemoLab\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ToolTip": "D:\\New folder\\laptrinhweb\\DemoLab\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-04T13:16:24.669Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "D:\\New folder\\laptrinhweb\\DemoLab\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "Views\\_ViewStart.cshtml",
+              "ToolTip": "D:\\New folder\\laptrinhweb\\DemoLab\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "Views\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-04T13:15:47.451Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "D:\\New folder\\laptrinhweb\\DemoLab\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "Views\\_ViewImports.cshtml",
+              "ToolTip": "D:\\New folder\\laptrinhweb\\DemoLab\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-04T13:15:47.04Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
