@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DemoLab")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2bd011412163b3ae48db7386a2483f5ef21a8336")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f6e59662830860817553464e5a91d41e49f8b183")]
 [assembly: System.Reflection.AssemblyProductAttribute("DemoLab")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DemoLab")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
