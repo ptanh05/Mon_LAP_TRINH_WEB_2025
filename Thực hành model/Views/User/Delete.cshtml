@@ -1,0 +1,29 @@
+@model Thực_hành_model.Models.User
+@{
+    ViewData["Title"] = "Xóa người dùng";
+}
+
+<h2>Xóa người dùng</h2>
+<h3>Bạn có chắc chắn muốn xóa người dùng này?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">Tên:</dt>
+        <dd class="col-sm-9">@Model.Name</dd>
+        
+        <dt class="col-sm-3">Email:</dt>
+        <dd class="col-sm-9">@Model.Email</dd>
+        
+        <dt class="col-sm-3">Số điện thoại:</dt>
+        <dd class="col-sm-9">@Model.Phone</dd>
+        
+        <dt class="col-sm-3">Ngày tạo:</dt>
+        <dd class="col-sm-9">@Model.CreatedAt.ToString("dd/MM/yyyy HH:mm")</dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Xóa</button>
+        <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+    </form>
+</div>

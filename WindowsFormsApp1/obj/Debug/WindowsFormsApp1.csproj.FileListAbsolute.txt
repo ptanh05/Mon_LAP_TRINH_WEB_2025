@@ -1,0 +1,16 @@
+D:\New folder\Mon_LAP_TRINH_WEB_2025\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.AssemblyReference.cache
+D:\New folder\Mon_LAP_TRINH_WEB_2025\WindowsFormsApp1\obj\Debug\Interop.WMPLib.dll
+D:\New folder\Mon_LAP_TRINH_WEB_2025\WindowsFormsApp1\obj\Debug\AxInterop.WMPLib.dll
+D:\New folder\Mon_LAP_TRINH_WEB_2025\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.ResolveComReference.cache
+D:\New folder\Mon_LAP_TRINH_WEB_2025\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
+D:\New folder\Mon_LAP_TRINH_WEB_2025\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+D:\New folder\Mon_LAP_TRINH_WEB_2025\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+D:\New folder\Mon_LAP_TRINH_WEB_2025\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+D:\New folder\Mon_LAP_TRINH_WEB_2025\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+D:\New folder\Mon_LAP_TRINH_WEB_2025\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+D:\New folder\Mon_LAP_TRINH_WEB_2025\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+D:\New folder\Mon_LAP_TRINH_WEB_2025\WindowsFormsApp1\bin\Debug\Interop.WMPLib.dll
+D:\New folder\Mon_LAP_TRINH_WEB_2025\WindowsFormsApp1\bin\Debug\AxInterop.WMPLib.dll
+D:\New folder\Mon_LAP_TRINH_WEB_2025\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+D:\New folder\Mon_LAP_TRINH_WEB_2025\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+D:\New folder\Mon_LAP_TRINH_WEB_2025\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe.config
