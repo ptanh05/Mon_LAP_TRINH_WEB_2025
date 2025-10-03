@@ -1,0 +1,10 @@
+D:\New folder\Mon_LAP_TRINH_WEB_2025\Lap trinh truc quan lab 03\bin\Debug\Lap trinh truc quan lab 03.exe.config
+D:\New folder\Mon_LAP_TRINH_WEB_2025\Lap trinh truc quan lab 03\bin\Debug\Lap trinh truc quan lab 03.exe
+D:\New folder\Mon_LAP_TRINH_WEB_2025\Lap trinh truc quan lab 03\bin\Debug\Lap trinh truc quan lab 03.pdb
+D:\New folder\Mon_LAP_TRINH_WEB_2025\Lap trinh truc quan lab 03\obj\Debug\Lap trinh truc quan lab 03.csproj.AssemblyReference.cache
+D:\New folder\Mon_LAP_TRINH_WEB_2025\Lap trinh truc quan lab 03\obj\Debug\Lap_trinh_truc_quan_lab_03.Properties.Resources.resources
+D:\New folder\Mon_LAP_TRINH_WEB_2025\Lap trinh truc quan lab 03\obj\Debug\Lap trinh truc quan lab 03.csproj.GenerateResource.cache
+D:\New folder\Mon_LAP_TRINH_WEB_2025\Lap trinh truc quan lab 03\obj\Debug\Lap trinh truc quan lab 03.csproj.CoreCompileInputs.cache
+D:\New folder\Mon_LAP_TRINH_WEB_2025\Lap trinh truc quan lab 03\obj\Debug\Lap trinh truc quan lab 03.exe
+D:\New folder\Mon_LAP_TRINH_WEB_2025\Lap trinh truc quan lab 03\obj\Debug\Lap trinh truc quan lab 03.pdb
+D:\New folder\Mon_LAP_TRINH_WEB_2025\Lap trinh truc quan lab 03\obj\Debug\Lap trinh truc quan lab 03.exe.config

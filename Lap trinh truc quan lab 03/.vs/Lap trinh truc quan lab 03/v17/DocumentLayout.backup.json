@@ -1,0 +1,137 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\New folder\\Mon_LAP_TRINH_WEB_2025\\Lap trinh truc quan lab 03\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1B1C0562-A325-4924-BA99-091938EB0F4C}|Lap trinh truc quan lab 03.csproj|d:\\new folder\\mon_lap_trinh_web_2025\\lap trinh truc quan lab 03\\classes\\databaseprocess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B1C0562-A325-4924-BA99-091938EB0F4C}|Lap trinh truc quan lab 03.csproj|solutionrelative:classes\\databaseprocess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B1C0562-A325-4924-BA99-091938EB0F4C}|Lap trinh truc quan lab 03.csproj|d:\\new folder\\mon_lap_trinh_web_2025\\lap trinh truc quan lab 03\\frmmathang.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B1C0562-A325-4924-BA99-091938EB0F4C}|Lap trinh truc quan lab 03.csproj|solutionrelative:frmmathang.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B1C0562-A325-4924-BA99-091938EB0F4C}|Lap trinh truc quan lab 03.csproj|d:\\new folder\\mon_lap_trinh_web_2025\\lap trinh truc quan lab 03\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B1C0562-A325-4924-BA99-091938EB0F4C}|Lap trinh truc quan lab 03.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B1C0562-A325-4924-BA99-091938EB0F4C}|Lap trinh truc quan lab 03.csproj|d:\\new folder\\mon_lap_trinh_web_2025\\lap trinh truc quan lab 03\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B1C0562-A325-4924-BA99-091938EB0F4C}|Lap trinh truc quan lab 03.csproj|solutionrelative:form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B1C0562-A325-4924-BA99-091938EB0F4C}|Lap trinh truc quan lab 03.csproj|d:\\new folder\\mon_lap_trinh_web_2025\\lap trinh truc quan lab 03\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1B1C0562-A325-4924-BA99-091938EB0F4C}|Lap trinh truc quan lab 03.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B1C0562-A325-4924-BA99-091938EB0F4C}|Lap trinh truc quan lab 03.csproj|D:\\New folder\\Mon_LAP_TRINH_WEB_2025\\Lap trinh truc quan lab 03\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1B1C0562-A325-4924-BA99-091938EB0F4C}|Lap trinh truc quan lab 03.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0174dea2-fdbe-4ef1-8f99-c0beae78880f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DataBaseProcess.cs",
+              "DocumentMoniker": "D:\\New folder\\Mon_LAP_TRINH_WEB_2025\\Lap trinh truc quan lab 03\\Classes\\DataBaseProcess.cs",
+              "RelativeDocumentMoniker": "Classes\\DataBaseProcess.cs",
+              "ToolTip": "D:\\New folder\\Mon_LAP_TRINH_WEB_2025\\Lap trinh truc quan lab 03\\Classes\\DataBaseProcess.cs",
+              "RelativeToolTip": "Classes\\DataBaseProcess.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T01:51:56.618Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmMatHang.Designer.cs",
+              "DocumentMoniker": "D:\\New folder\\Mon_LAP_TRINH_WEB_2025\\Lap trinh truc quan lab 03\\frmMatHang.Designer.cs",
+              "RelativeDocumentMoniker": "frmMatHang.Designer.cs",
+              "ToolTip": "D:\\New folder\\Mon_LAP_TRINH_WEB_2025\\Lap trinh truc quan lab 03\\frmMatHang.Designer.cs",
+              "RelativeToolTip": "frmMatHang.Designer.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwBIAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T01:49:29.275Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\New folder\\Mon_LAP_TRINH_WEB_2025\\Lap trinh truc quan lab 03\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\New folder\\Mon_LAP_TRINH_WEB_2025\\Lap trinh truc quan lab 03\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T01:49:23.112Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "D:\\New folder\\Mon_LAP_TRINH_WEB_2025\\Lap trinh truc quan lab 03\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "Form1.Designer.cs",
+              "ToolTip": "D:\\New folder\\Mon_LAP_TRINH_WEB_2025\\Lap trinh truc quan lab 03\\Form1.Designer.cs",
+              "RelativeToolTip": "Form1.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T01:45:56.833Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "D:\\New folder\\Mon_LAP_TRINH_WEB_2025\\Lap trinh truc quan lab 03\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "D:\\New folder\\Mon_LAP_TRINH_WEB_2025\\Lap trinh truc quan lab 03\\Form1.cs",
+              "RelativeToolTip": "Form1.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwA4AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T00:35:34.645Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "D:\\New folder\\Mon_LAP_TRINH_WEB_2025\\Lap trinh truc quan lab 03\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "D:\\New folder\\Mon_LAP_TRINH_WEB_2025\\Lap trinh truc quan lab 03\\Form1.cs [Design]",
+              "RelativeToolTip": "Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T00:25:13.738Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
