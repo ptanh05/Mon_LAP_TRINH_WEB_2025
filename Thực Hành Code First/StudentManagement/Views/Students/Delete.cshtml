@@ -1,0 +1,129 @@
+@model StudentManagement.Models.Student
+
+@{
+    ViewData["Title"] = "Xóa Sinh viên";
+}
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-danger text-white">
+                    <h3 class="card-title mb-0">
+                        <i class="fas fa-exclamation-triangle"></i> Xác nhận Xóa Sinh viên
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-warning" role="alert">
+                        <i class="fas fa-warning"></i>
+                        <strong>Cảnh báo!</strong> Bạn có chắc chắn muốn xóa sinh viên này không? 
+                        Tất cả các khóa học đã đăng ký cũng sẽ bị xóa theo.
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5 class="text-primary mb-3">Thông tin Sinh viên</h5>
+                            <table class="table table-borderless">
+                                <tr>
+                                    <td class="fw-bold">@Html.DisplayNameFor(model => model.Name):</td>
+                                    <td>@Html.DisplayFor(model => model.Name)</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">@Html.DisplayNameFor(model => model.Email):</td>
+                                    <td>@Html.DisplayFor(model => model.Email)</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">@Html.DisplayNameFor(model => model.BirthDate):</td>
+                                    <td>@Model.BirthDate.ToString("dd/MM/yyyy")</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">@Html.DisplayNameFor(model => model.PhoneNumber):</td>
+                                    <td>
+                                        @if (!string.IsNullOrEmpty(Model.PhoneNumber))
+                                        {
+                                            @Html.DisplayFor(model => model.PhoneNumber)
+                                        }
+                                        else
+                                        {
+                                            <span class="text-muted">Chưa cập nhật</span>
+                                        }
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="text-primary mb-3">Khóa học Đã Đăng ký</h5>
+                            @if (Model.Enrollments.Any())
+                            {
+                                <div class="table-responsive">
+                                    <table class="table table-sm">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Mã khóa học</th>
+                                                <th>Tên khóa học</th>
+                                                <th>Trạng thái</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var enrollment in Model.Enrollments)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge bg-secondary">
+                                                            @enrollment.Course.CourseCode
+                                                        </span>
+                                                    </td>
+                                                    <td>@enrollment.Course.Title</td>
+                                                    <td>
+                                                        @switch (enrollment.Status)
+                                                        {
+                                                            case "Active":
+                                                                <span class="badge bg-primary">Đang học</span>
+                                                                break;
+                                                            case "Completed":
+                                                                <span class="badge bg-success">Hoàn thành</span>
+                                                                break;
+                                                            case "Dropped":
+                                                                <span class="badge bg-danger">Bỏ học</span>
+                                                                break;
+                                                            default:
+                                                                <span class="badge bg-secondary">@enrollment.Status</span>
+                                                                break;
+                                                        }
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="alert alert-info mt-3">
+                                    <i class="fas fa-info-circle"></i>
+                                    <strong>Lưu ý:</strong> Sẽ có <strong>@Model.Enrollments.Count</strong> khóa học bị xóa cùng với sinh viên này.
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="text-center py-3">
+                                    <i class="fas fa-book fa-2x text-muted mb-2"></i>
+                                    <p class="text-muted mb-0">Sinh viên chưa đăng ký khóa học nào</p>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    <form asp-action="Delete" class="mt-4">
+                        <input type="hidden" asp-for="Id" />
+                        <div class="d-flex justify-content-between">
+                            <a asp-action="Index" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left"></i> Quay lại
+                            </a>
+                            <button type="submit" class="btn btn-danger">
+                                <i class="fas fa-trash"></i> Xác nhận Xóa
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

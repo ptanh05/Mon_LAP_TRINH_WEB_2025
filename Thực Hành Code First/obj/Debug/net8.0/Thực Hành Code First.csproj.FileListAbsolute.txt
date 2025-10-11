@@ -1,0 +1,9 @@
+D:\Thực hành các môn trên lớp năm 3\Mon_LAP_TRINH_WEB_2025\Thực Hành Code First\obj\Debug\net8.0\rpswa.dswa.cache.json
+D:\Thực hành các môn trên lớp năm 3\Mon_LAP_TRINH_WEB_2025\Thực Hành Code First\obj\Debug\net8.0\Thực Hành Code First.GeneratedMSBuildEditorConfig.editorconfig
+D:\Thực hành các môn trên lớp năm 3\Mon_LAP_TRINH_WEB_2025\Thực Hành Code First\obj\Debug\net8.0\Thực Hành Code First.AssemblyInfoInputs.cache
+D:\Thực hành các môn trên lớp năm 3\Mon_LAP_TRINH_WEB_2025\Thực Hành Code First\obj\Debug\net8.0\Thực Hành Code First.AssemblyInfo.cs
+D:\Thực hành các môn trên lớp năm 3\Mon_LAP_TRINH_WEB_2025\Thực Hành Code First\obj\Debug\net8.0\Thực Hành Code First.csproj.CoreCompileInputs.cache
+D:\Thực hành các môn trên lớp năm 3\Mon_LAP_TRINH_WEB_2025\Thực Hành Code First\obj\Debug\net8.0\Thực Hành Code First.MvcApplicationPartsAssemblyInfo.cache
+D:\Thực hành các môn trên lớp năm 3\Mon_LAP_TRINH_WEB_2025\Thực Hành Code First\obj\Debug\net8.0\Thực Hành Code First.RazorAssemblyInfo.cache
+D:\Thực hành các môn trên lớp năm 3\Mon_LAP_TRINH_WEB_2025\Thực Hành Code First\obj\Debug\net8.0\Thực Hành Code First.RazorAssemblyInfo.cs
+D:\Thực hành các môn trên lớp năm 3\Mon_LAP_TRINH_WEB_2025\Thực Hành Code First\obj\Debug\net8.0\Thực Hành Code First.sourcelink.json

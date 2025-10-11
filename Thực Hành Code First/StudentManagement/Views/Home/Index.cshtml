@@ -1,0 +1,114 @@
+﻿@{
+    ViewData["Title"] = "Trang chủ";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="jumbotron bg-primary text-white rounded p-5 mb-4">
+                <div class="container-fluid py-5">
+                    <h1 class="display-4 fw-bold">
+                        <i class="fas fa-graduation-cap"></i> Chào mừng đến với StudentManagement
+                    </h1>
+                    <p class="lead">
+                        Hệ thống quản lý sinh viên được xây dựng bằng ASP.NET Core MVC và Entity Framework Core Code First
+                    </p>
+                    <hr class="my-4">
+                    <p>
+                        Ứng dụng này demo việc sử dụng Entity Framework Core theo hướng Code First để quản lý dữ liệu sinh viên, 
+                        khóa học và việc đăng ký khóa học.
+                    </p>
+                    <a class="btn btn-light btn-lg" asp-controller="Students" asp-action="Index" role="button">
+                        <i class="fas fa-users"></i> Bắt đầu Quản lý Sinh viên
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-users fa-3x text-primary mb-3"></i>
+                    <h5 class="card-title">Quản lý Sinh viên</h5>
+                    <p class="card-text">
+                        Thêm, sửa, xóa và xem thông tin chi tiết của sinh viên. 
+                        Quản lý đầy đủ thông tin cá nhân và học tập.
+                    </p>
+                    <a asp-controller="Students" asp-action="Index" class="btn btn-primary">
+                        <i class="fas fa-arrow-right"></i> Xem chi tiết
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-book fa-3x text-success mb-3"></i>
+                    <h5 class="card-title">Khóa học</h5>
+                    <p class="card-text">
+                        Quản lý thông tin các khóa học bao gồm mã khóa học, 
+                        tên khóa học, mô tả và số tín chỉ.
+                    </p>
+                    <a href="#" class="btn btn-success disabled">
+                        <i class="fas fa-arrow-right"></i> Sắp có
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <i class="fas fa-clipboard-list fa-3x text-warning mb-3"></i>
+                    <h5 class="card-title">Đăng ký Khóa học</h5>
+                    <p class="card-text">
+                        Quản lý việc đăng ký khóa học của sinh viên, 
+                        theo dõi điểm số và trạng thái học tập.
+                    </p>
+                    <a href="#" class="btn btn-warning disabled">
+                        <i class="fas fa-arrow-right"></i> Sắp có
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-info-circle"></i> Thông tin Kỹ thuật
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6 class="text-primary">Công nghệ sử dụng:</h6>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success"></i> .NET 8</li>
+                                <li><i class="fas fa-check text-success"></i> ASP.NET Core MVC</li>
+                                <li><i class="fas fa-check text-success"></i> Entity Framework Core</li>
+                                <li><i class="fas fa-check text-success"></i> SQL Server LocalDB</li>
+                                <li><i class="fas fa-check text-success"></i> Bootstrap 5</li>
+                                <li><i class="fas fa-check text-success"></i> Font Awesome Icons</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="text-primary">Tính năng chính:</h6>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success"></i> Code First Migration</li>
+                                <li><i class="fas fa-check text-success"></i> CRUD Operations</li>
+                                <li><i class="fas fa-check text-success"></i> Data Validation</li>
+                                <li><i class="fas fa-check text-success"></i> Responsive Design</li>
+                                <li><i class="fas fa-check text-success"></i> Seed Data</li>
+                                <li><i class="fas fa-check text-success"></i> Relationship Mapping</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

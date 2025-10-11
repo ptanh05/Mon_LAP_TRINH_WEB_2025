@@ -1,0 +1,82 @@
+@model StudentManagement.Models.Student
+
+@{
+    ViewData["Title"] = "Chỉnh sửa Sinh viên";
+}
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h3 class="card-title mb-0">
+                        <i class="fas fa-user-edit"></i> Chỉnh sửa Sinh viên
+                    </h3>
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Quay lại
+                    </a>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+                        
+                        <input type="hidden" asp-for="Id" />
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="Name" class="form-label"></label>
+                                    <input asp-for="Name" class="form-control" placeholder="Nhập họ và tên sinh viên" />
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="Email" class="form-label"></label>
+                                    <input asp-for="Email" class="form-control" placeholder="Nhập email sinh viên" />
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="BirthDate" class="form-label"></label>
+                                    <input asp-for="BirthDate" class="form-control" type="date" />
+                                    <span asp-validation-for="BirthDate" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="PhoneNumber" class="form-label"></label>
+                                    <input asp-for="PhoneNumber" class="form-control" placeholder="Nhập số điện thoại" />
+                                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Address" class="form-label"></label>
+                            <textarea asp-for="Address" class="form-control" rows="3" placeholder="Nhập địa chỉ sinh viên"></textarea>
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <a asp-action="Index" class="btn btn-secondary">
+                                <i class="fas fa-times"></i> Hủy
+                            </a>
+                            <button type="submit" class="btn btn-warning">
+                                <i class="fas fa-save"></i> Cập nhật Thông tin
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
