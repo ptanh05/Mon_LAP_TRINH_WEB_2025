@@ -33,6 +33,16 @@ namespace StudentManagement.Data
         public DbSet<Enrollment> Enrollments { get; set; }
 
         /// <summary>
+        /// DbSet cho bảng Instructors - quản lý thông tin giảng viên
+        /// </summary>
+        public DbSet<Instructor> Instructors { get; set; }
+
+        /// <summary>
+        /// DbSet cho bảng ClassSections - quản lý lớp học phần
+        /// </summary>
+        public DbSet<ClassSection> ClassSections { get; set; }
+
+        /// <summary>
         /// Cấu hình các mối quan hệ và ràng buộc cho các entity
         /// </summary>
         /// <param name="modelBuilder">ModelBuilder để cấu hình model</param>
@@ -104,6 +114,67 @@ namespace StudentManagement.Data
                     .OnDelete(DeleteBehavior.Cascade);
             });
 
+            // Cấu hình cho Instructor entity
+            modelBuilder.Entity<Instructor>(entity =>
+            {
+                entity.HasKey(i => i.Id);
+
+                entity.Property(i => i.FirstName)
+                    .IsRequired()
+                    .HasMaxLength(100);
+
+                entity.Property(i => i.LastName)
+                    .IsRequired()
+                    .HasMaxLength(100);
+
+                entity.Property(i => i.Email)
+                    .IsRequired()
+                    .HasMaxLength(200);
+
+                entity.Property(i => i.PhoneNumber)
+                    .HasMaxLength(20);
+
+                entity.Property(i => i.Department)
+                    .HasMaxLength(200);
+
+                entity.Property(i => i.Specialization)
+                    .HasMaxLength(500);
+
+                entity.HasIndex(i => i.Email)
+                    .IsUnique();
+            });
+
+            // Cấu hình cho ClassSection entity
+            modelBuilder.Entity<ClassSection>(entity =>
+            {
+                entity.HasKey(cs => cs.Id);
+
+                entity.Property(cs => cs.SectionCode)
+                    .IsRequired()
+                    .HasMaxLength(20);
+
+                entity.Property(cs => cs.Room)
+                    .HasMaxLength(50);
+
+                entity.Property(cs => cs.Schedule)
+                    .HasMaxLength(100);
+
+                // Foreign key relationships
+                entity.HasOne(cs => cs.Course)
+                    .WithMany()
+                    .HasForeignKey(cs => cs.CourseId)
+                    .OnDelete(DeleteBehavior.Cascade);
+
+                entity.HasOne(cs => cs.Instructor)
+                    .WithMany(i => i.ClassSections)
+                    .HasForeignKey(cs => cs.InstructorId)
+                    .OnDelete(DeleteBehavior.Restrict);
+
+                // Unique constraint for section code per course
+                entity.HasIndex(cs => new { cs.CourseId, cs.SectionCode })
+                    .IsUnique();
+            });
+
             // Cấu hình cho Enrollment entity
             modelBuilder.Entity<Enrollment>(entity =>
             {
@@ -117,6 +188,9 @@ namespace StudentManagement.Data
                 entity.Property(e => e.CourseId)
                     .IsRequired();
 
+                entity.Property(e => e.ClassSectionId)
+                    .IsRequired();
+
                 entity.Property(e => e.EnrollmentDate)
                     .IsRequired();
 
@@ -124,8 +198,8 @@ namespace StudentManagement.Data
                     .IsRequired()
                     .HasMaxLength(20);
 
-                // Thiết lập composite index để đảm bảo một sinh viên không thể đăng ký cùng một khóa học nhiều lần
-                entity.HasIndex(e => new { e.StudentId, e.CourseId })
+                // Thiết lập composite index để đảm bảo một sinh viên không thể đăng ký cùng một lớp học phần nhiều lần
+                entity.HasIndex(e => new { e.StudentId, e.ClassSectionId })
                     .IsUnique();
 
                 // Cấu hình foreign key constraints
@@ -135,8 +209,13 @@ namespace StudentManagement.Data
                     .OnDelete(DeleteBehavior.Cascade);
 
                 entity.HasOne(e => e.Course)
-                    .WithMany(c => c.Enrollments)
+                    .WithMany()
                     .HasForeignKey(e => e.CourseId)
+                    .OnDelete(DeleteBehavior.Cascade);
+
+                entity.HasOne(e => e.ClassSection)
+                    .WithMany(cs => cs.Enrollments)
+                    .HasForeignKey(e => e.ClassSectionId)
                     .OnDelete(DeleteBehavior.Cascade);
             });
 
@@ -209,6 +288,92 @@ namespace StudentManagement.Data
                 }
             );
 
+            // Seed Instructors
+            modelBuilder.Entity<Instructor>().HasData(
+                new Instructor
+                {
+                    Id = 1,
+                    FirstName = "Nguyễn",
+                    LastName = "Văn Giảng",
+                    Email = "giang.nguyen@university.edu",
+                    PhoneNumber = "0123456789",
+                    Department = "Khoa Công nghệ Thông tin",
+                    Specialization = "Lập trình Web, Database",
+                    HireDate = new DateTime(2020, 9, 1),
+                    IsActive = true
+                },
+                new Instructor
+                {
+                    Id = 2,
+                    FirstName = "Trần",
+                    LastName = "Thị Minh",
+                    Email = "minh.tran@university.edu",
+                    PhoneNumber = "0987654321",
+                    Department = "Khoa Công nghệ Thông tin",
+                    Specialization = "Cấu trúc Dữ liệu, Thuật toán",
+                    HireDate = new DateTime(2019, 3, 15),
+                    IsActive = true
+                },
+                new Instructor
+                {
+                    Id = 3,
+                    FirstName = "Lê",
+                    LastName = "Văn Toán",
+                    Email = "toan.le@university.edu",
+                    PhoneNumber = "0369852147",
+                    Department = "Khoa Toán",
+                    Specialization = "Toán học Cơ bản, Thống kê",
+                    HireDate = new DateTime(2021, 1, 10),
+                    IsActive = true
+                }
+            );
+
+            // Seed ClassSections
+            modelBuilder.Entity<ClassSection>().HasData(
+                new ClassSection
+                {
+                    Id = 1,
+                    SectionCode = "CS101-01",
+                    CourseId = 1,
+                    InstructorId = 1,
+                    MaxCapacity = 30,
+                    CurrentEnrollment = 0,
+                    StartDate = new DateTime(2024, 9, 1),
+                    EndDate = new DateTime(2024, 12, 15),
+                    Room = "A101",
+                    Schedule = "T2, T4, T6 - 8:00-10:00",
+                    IsActive = true
+                },
+                new ClassSection
+                {
+                    Id = 2,
+                    SectionCode = "CS201-01",
+                    CourseId = 2,
+                    InstructorId = 2,
+                    MaxCapacity = 25,
+                    CurrentEnrollment = 0,
+                    StartDate = new DateTime(2024, 9, 1),
+                    EndDate = new DateTime(2024, 12, 15),
+                    Room = "A102",
+                    Schedule = "T3, T5 - 10:00-12:00",
+                    IsActive = true
+                },
+                new ClassSection
+                {
+                    Id = 3,
+                    SectionCode = "MATH101-01",
+                    CourseId = 3,
+                    InstructorId = 3,
+                    MaxCapacity = 40,
+                    CurrentEnrollment = 0,
+                    StartDate = new DateTime(2024, 9, 1),
+                    EndDate = new DateTime(2024, 12, 15),
+                    Room = "B201",
+                    Schedule = "T2, T4 - 14:00-16:00",
+                    IsActive = true
+                }
+            );
+
             // Seed Enrollments
             modelBuilder.Entity<Enrollment>().HasData(
                 new Enrollment
@@ -216,8 +381,12 @@ namespace StudentManagement.Data
                     Id = 1,
                     StudentId = 1,
                     CourseId = 1,
+                    ClassSectionId = 1,
                     EnrollmentDate = new DateTime(2024, 1, 15),
-                    Grade = 8.5m,
+                    MidtermGrade = 8.5m,
+                    FinalGrade = 9.0m,
+                    AssignmentGrade = 8.0m,
+                    Grade = 8.7m,
                     Status = "Completed"
                 },
                 new Enrollment
@@ -225,8 +394,12 @@ namespace StudentManagement.Data
                     Id = 2,
                     StudentId = 1,
                     CourseId = 2,
+                    ClassSectionId = 2,
                     EnrollmentDate = new DateTime(2024, 1, 15),
-                    Grade = 9.0m,
+                    MidtermGrade = 9.0m,
+                    FinalGrade = 9.5m,
+                    AssignmentGrade = 8.5m,
+                    Grade = 9.2m,
                     Status = "Completed"
                 },
                 new Enrollment
@@ -234,8 +407,12 @@ namespace StudentManagement.Data
                     Id = 3,
                     StudentId = 2,
                     CourseId = 1,
+                    ClassSectionId = 1,
                     EnrollmentDate = new DateTime(2024, 1, 20),
-                    Grade = 7.5m,
+                    MidtermGrade = 7.0m,
+                    FinalGrade = 8.0m,
+                    AssignmentGrade = 7.5m,
+                    Grade = 7.6m,
                     Status = "Completed"
                 },
                 new Enrollment
@@ -243,6 +420,7 @@ namespace StudentManagement.Data
                     Id = 4,
                     StudentId = 3,
                     CourseId = 3,
+                    ClassSectionId = 3,
                     EnrollmentDate = new DateTime(2024, 2, 1),
                     Grade = null,
                     Status = "Active"
