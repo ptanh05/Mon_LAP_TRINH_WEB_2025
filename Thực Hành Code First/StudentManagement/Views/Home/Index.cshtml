@@ -107,32 +107,16 @@
             <div class="card">
                 <div class="card-header">
                     <h5 class="card-title mb-0">
-                        <i class="fas fa-info-circle"></i> Thông tin Kỹ thuật
+                        <i class="fas fa-chart-pie"></i> Thống kê & Biểu đồ
                     </h5>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6">
-                            <h6 class="text-primary">Công nghệ sử dụng:</h6>
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-check text-success"></i> .NET 8</li>
-                                <li><i class="fas fa-check text-success"></i> ASP.NET Core MVC</li>
-                                <li><i class="fas fa-check text-success"></i> Entity Framework Core</li>
-                                <li><i class="fas fa-check text-success"></i> SQL Server LocalDB</li>
-                                <li><i class="fas fa-check text-success"></i> Bootstrap 5</li>
-                                <li><i class="fas fa-check text-success"></i> Font Awesome Icons</li>
-                            </ul>
+                            <canvas id="chartTopCourses" height="200"></canvas>
                         </div>
                         <div class="col-md-6">
-                            <h6 class="text-primary">Tính năng chính:</h6>
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-check text-success"></i> Code First Migration</li>
-                                <li><i class="fas fa-check text-success"></i> CRUD Operations</li>
-                                <li><i class="fas fa-check text-success"></i> Data Validation</li>
-                                <li><i class="fas fa-check text-success"></i> Responsive Design</li>
-                                <li><i class="fas fa-check text-success"></i> Seed Data</li>
-                                <li><i class="fas fa-check text-success"></i> Relationship Mapping</li>
-                            </ul>
+                            <canvas id="chartOverview" height="200"></canvas>
                         </div>
                     </div>
                 </div>
@@ -140,3 +124,45 @@
         </div>
     </div>
 </div>
+@section Scripts {
+    <script>
+        (function loadChartJs(){
+            var s = document.createElement('script');
+            s.src = 'https://cdn.jsdelivr.net/npm/chart.js';
+            s.onload = renderCharts;
+            document.body.appendChild(s);
+        })();
+
+        async function renderCharts(){
+            const overviewRes = await fetch('/stats/overview');
+            const overview = await overviewRes.json();
+            const ctxOverview = document.getElementById('chartOverview').getContext('2d');
+            new Chart(ctxOverview, {
+                type: 'bar',
+                data: {
+                    labels: ['Students','Courses','Enrollments','Avg GPA'],
+                    datasets: [{
+                        label: 'Overview',
+                        data: [overview.students, overview.courses, overview.enrollments, overview.avgGpa],
+                        backgroundColor: ['#0d6efd','#198754','#ffc107','#6f42c1']
+                    }]
+                },
+                options: { responsive: true, plugins: { legend: { display:false } } }
+            });
+
+            const topRes = await fetch('/stats/top-courses');
+            const top = await topRes.json();
+            const labels = top.map(x => x.title || x.Title);
+            const values = top.map(x => x.count || x.Count);
+            const ctxTop = document.getElementById('chartTopCourses').getContext('2d');
+            new Chart(ctxTop, {
+                type: 'pie',
+                data: {
+                    labels,
+                    datasets: [{ data: values, backgroundColor: ['#0dcaf0','#198754','#dc3545','#ffc107','#0d6efd'] }]
+                },
+                options: { responsive: true }
+            });
+        }
+    </script>
+}

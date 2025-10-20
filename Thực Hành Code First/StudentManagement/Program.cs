@@ -10,6 +10,7 @@ builder.Services.AddDbContext<StudentManagement.Data.SchoolContext>(options =>
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddControllers();
 
 var app = builder.Build();
 

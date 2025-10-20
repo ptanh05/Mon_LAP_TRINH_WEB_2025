@@ -30,6 +30,31 @@ public class HomeController : Controller
         return View();
     }
 
+    [HttpGet("/stats/overview")]
+    public async Task<IActionResult> StatsOverview()
+    {
+        var students = await _context.Students.CountAsync();
+        var courses = await _context.Courses.CountAsync();
+        var enrollments = await _context.Enrollments.CountAsync();
+        var avgGpa = await _context.Enrollments
+            .Where(e => (e.Grade ?? e.MidtermGrade ?? e.FinalGrade ?? e.AssignmentGrade) != null)
+            .Select(e => e.GetGpaPoints())
+            .DefaultIfEmpty(0)
+            .AverageAsync();
+        return Ok(new { students, courses, enrollments, avgGpa = Math.Round((double)avgGpa, 2) });
+    }
+
+    [HttpGet("/stats/top-courses")]
+    public async Task<IActionResult> StatsTopCourses()
+    {
+        var data = await _context.Courses
+            .Select(c => new { c.Title, Count = c.Enrollments.Count })
+            .OrderByDescending(x => x.Count)
+            .Take(5)
+            .ToListAsync();
+        return Ok(data);
+    }
+
     public IActionResult Privacy()
     {
         return View();

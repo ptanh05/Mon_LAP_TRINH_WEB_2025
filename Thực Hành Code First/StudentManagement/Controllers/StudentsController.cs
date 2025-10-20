@@ -108,6 +108,41 @@ namespace StudentManagement.Controllers
         }
 
         [HttpGet]
+        public async Task<FileResult> ExportTranscriptCsv(int id)
+        {
+            var student = await _context.Students
+                .Include(s => s.Enrollments)
+                    .ThenInclude(e => e.Course)
+                .FirstOrDefaultAsync(s => s.Id == id);
+            if (student == null)
+            {
+                return File(Array.Empty<byte>(), "text/csv", "transcript.csv");
+            }
+
+            System.Text.StringBuilder sb = new();
+            sb.AppendLine("CourseCode,Title,Credits,Midterm,Final,Assignment,FinalGrade,Letter,Status");
+            foreach (var e in student.Enrollments)
+            {
+                var final = e.Grade ?? e.CalculateFinalGrade();
+                var letter = e.GetGradeLetter();
+                sb.AppendLine(string.Join(",",
+                    EscapeCsv(e.Course.CourseCode),
+                    EscapeCsv(e.Course.Title),
+                    e.Course.Credits,
+                    e.MidtermGrade?.ToString("F1") ?? "",
+                    e.FinalGrade?.ToString("F1") ?? "",
+                    e.AssignmentGrade?.ToString("F1") ?? "",
+                    final?.ToString("F1") ?? "",
+                    EscapeCsv(letter),
+                    EscapeCsv(e.Status)
+                ));
+            }
+
+            var bytes = System.Text.Encoding.UTF8.GetBytes(sb.ToString());
+            return File(bytes, "text/csv", $"transcript_{student.Id}.csv");
+        }
+
+        [HttpGet]
         public IActionResult ImportCsv()
         {
             return View();
@@ -242,6 +277,23 @@ namespace StudentManagement.Controllers
             {
                 return NotFound();
             }
+
+            // Tính GPA trung bình có trọng số theo tín chỉ
+            var graded = student.Enrollments
+                .Where(e => (e.Grade ?? e.CalculateFinalGrade()) != null && e.Course != null)
+                .Select(e => new
+                {
+                    Credits = e.Course.Credits,
+                    Points = (double)e.GetGpaPoints(),
+                    Final = (double?)((e.Grade ?? e.CalculateFinalGrade())?.ToString() != null ? (double?)Convert.ToDouble((e.Grade ?? e.CalculateFinalGrade())) : null)
+                })
+                .ToList();
+
+            double totalCredits = graded.Sum(x => x.Credits);
+            double totalPoints = graded.Sum(x => x.Points * x.Credits);
+            double gpa = totalCredits > 0 ? Math.Round(totalPoints / totalCredits, 2) : 0.0;
+
+            ViewBag.GPA = gpa;
 
             return View(student);
         }
