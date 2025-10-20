@@ -1,0 +1,104 @@
+@model StudentManagement.Models.Enrollment
+
+@{
+    ViewData["Title"] = "Thêm Đăng ký Mới";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title mb-0">
+                        <i class="fas fa-plus"></i> Thêm Đăng ký Khóa học Mới
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="StudentId" class="form-label">Sinh viên *</label>
+                                    <select asp-for="StudentId" class="form-select" asp-items="ViewBag.StudentId">
+                                        <option value="">-- Chọn sinh viên --</option>
+                                    </select>
+                                    <span asp-validation-for="StudentId" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="CourseId" class="form-label">Khóa học *</label>
+                                    <select asp-for="CourseId" class="form-select" asp-items="ViewBag.CourseId">
+                                        <option value="">-- Chọn khóa học --</option>
+                                    </select>
+                                    <span asp-validation-for="CourseId" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="EnrollmentDate" class="form-label">Ngày đăng ký *</label>
+                                    <input asp-for="EnrollmentDate" class="form-control" type="date" />
+                                    <span asp-validation-for="EnrollmentDate" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="Status" class="form-label">Trạng thái *</label>
+                                    <select asp-for="Status" class="form-select">
+                                        <option value="Pending">Pending</option>
+                                        <option value="Active">Active</option>
+                                        <option value="Completed">Completed</option>
+                                        <option value="Withdrawn">Withdrawn</option>
+                                    </select>
+                                    <span asp-validation-for="Status" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Grade" class="form-label">Điểm (tùy chọn)</label>
+                            <input asp-for="Grade" class="form-control" type="number" step="0.1" min="0" max="10" placeholder="VD: 8.5" />
+                            <span asp-validation-for="Grade" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <a asp-action="Index" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left"></i> Quay lại
+                            </a>
+                            <button type="submit" class="btn btn-warning">
+                                <i class="fas fa-save"></i> Lưu Đăng ký
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-info-circle"></i> Hướng dẫn
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check text-success"></i> Chọn sinh viên và khóa học</li>
+                        <li><i class="fas fa-check text-success"></i> Ngày đăng ký mặc định là hôm nay</li>
+                        <li><i class="fas fa-check text-success"></i> Trạng thái: Pending, Active, Completed, Withdrawn</li>
+                        <li><i class="fas fa-check text-success"></i> Điểm từ 0-10 (có thể để trống)</li>
+                        <li><i class="fas fa-exclamation-triangle text-warning"></i> Không thể đăng ký trùng khóa học</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,102 @@
+@model StudentManagement.Models.Enrollment
+
+@{
+    ViewData["Title"] = "Xóa Đăng ký";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title mb-0 text-danger">
+                        <i class="fas fa-exclamation-triangle"></i> Xác nhận Xóa Đăng ký
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-danger">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <strong>Cảnh báo:</strong> Bạn có chắc chắn muốn xóa đăng ký này? 
+                        Hành động này không thể khôi phục.
+                    </div>
+
+                    <dl class="row">
+                        <dt class="col-sm-3">Sinh viên:</dt>
+                        <dd class="col-sm-9">
+                            <strong>@Model.Student.Name</strong><br>
+                            <small class="text-muted">@Model.Student.Email</small>
+                        </dd>
+
+                        <dt class="col-sm-3">Khóa học:</dt>
+                        <dd class="col-sm-9">
+                            <span class="badge bg-primary">@Model.Course.CourseCode</span><br>
+                            <strong>@Model.Course.Title</strong>
+                        </dd>
+
+                        <dt class="col-sm-3">Ngày đăng ký:</dt>
+                        <dd class="col-sm-9">
+                            @Model.EnrollmentDate.ToString("dd/MM/yyyy")
+                        </dd>
+
+                        <dt class="col-sm-3">Điểm:</dt>
+                        <dd class="col-sm-9">
+                            @if (Model.Grade.HasValue)
+                            {
+                                <span class="badge bg-success">@Model.Grade.Value.ToString("F1")</span>
+                            }
+                            else
+                            {
+                                <span class="text-muted">Chưa có điểm</span>
+                            }
+                        </dd>
+
+                        <dt class="col-sm-3">Trạng thái:</dt>
+                        <dd class="col-sm-9">
+                            @{
+                                var statusClass = Model.Status switch
+                                {
+                                    "Active" => "bg-primary",
+                                    "Completed" => "bg-success",
+                                    "Withdrawn" => "bg-danger",
+                                    _ => "bg-secondary"
+                                };
+                            }
+                            <span class="badge @statusClass">@Model.Status</span>
+                        </dd>
+                    </dl>
+
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="Id" />
+                        <div class="d-flex justify-content-between">
+                            <a asp-action="Index" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left"></i> Quay lại
+                            </a>
+                            <button type="submit" class="btn btn-danger">
+                                <i class="fas fa-trash"></i> Xác nhận Xóa
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-info-circle"></i> Thông tin
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <p class="text-muted">
+                        Khi xóa đăng ký, hệ thống sẽ:
+                    </p>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-times text-danger"></i> Xóa đăng ký khóa học</li>
+                        <li><i class="fas fa-times text-danger"></i> Mất thông tin điểm số</li>
+                        <li><i class="fas fa-times text-danger"></i> Không thể khôi phục</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

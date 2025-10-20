@@ -1,0 +1,116 @@
+@model IEnumerable<StudentManagement.Models.Course>
+
+@{
+    ViewData["Title"] = "Danh sách Khóa học";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h3 class="card-title mb-0">
+                        <i class="fas fa-book"></i> Quản lý Khóa học
+                    </h3>
+                    <a asp-action="Create" class="btn btn-success">
+                        <i class="fas fa-plus"></i> Thêm Khóa học Mới
+                    </a>
+                </div>
+                <div class="card-body">
+                    @if (TempData["SuccessMessage"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <i class="fas fa-check-circle"></i> @TempData["SuccessMessage"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    }
+
+                    @if (Model.Any())
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>@Html.DisplayNameFor(model => model.CourseCode)</th>
+                                        <th>@Html.DisplayNameFor(model => model.Title)</th>
+                                        <th>@Html.DisplayNameFor(model => model.Credits)</th>
+                                        <th>@Html.DisplayNameFor(model => model.Description)</th>
+                                        <th>Số sinh viên đăng ký</th>
+                                        <th class="text-center">Thao tác</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <span class="badge bg-primary">@Html.DisplayFor(modelItem => item.CourseCode)</span>
+                                            </td>
+                                            <td>
+                                                <strong>@Html.DisplayFor(modelItem => item.Title)</strong>
+                                            </td>
+                                            <td>
+                                                <span class="badge bg-info">@Html.DisplayFor(modelItem => item.Credits) tín chỉ</span>
+                                            </td>
+                                            <td>
+                                                @if (!string.IsNullOrEmpty(item.Description))
+                                                {
+                                                    <span class="text-muted">@(item.Description.Length > 50 ? item.Description.Substring(0, 50) + "..." : item.Description)</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="text-muted">Chưa có mô tả</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                <span class="badge bg-warning">
+                                                    @item.Enrollments.Count sinh viên
+                                                </span>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="btn-group" role="group">
+                                                    <a asp-action="Details" asp-route-id="@item.Id" 
+                                                       class="btn btn-sm btn-outline-info" title="Xem chi tiết">
+                                                        <i class="fas fa-eye"></i>
+                                                    </a>
+                                                    <a asp-action="Edit" asp-route-id="@item.Id" 
+                                                       class="btn btn-sm btn-outline-warning" title="Chỉnh sửa">
+                                                        <i class="fas fa-edit"></i>
+                                                    </a>
+                                                    <a asp-action="Delete" asp-route-id="@item.Id" 
+                                                       class="btn btn-sm btn-outline-danger" title="Xóa">
+                                                        <i class="fas fa-trash"></i>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center py-5">
+                            <i class="fas fa-book fa-3x text-muted mb-3"></i>
+                            <h4 class="text-muted">Chưa có khóa học nào</h4>
+                            <p class="text-muted">Hãy thêm khóa học đầu tiên để bắt đầu quản lý.</p>
+                            <a asp-action="Create" class="btn btn-success">
+                                <i class="fas fa-plus"></i> Thêm Khóa học Đầu tiên
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Auto-hide success message after 5 seconds
+        setTimeout(function() {
+            $('.alert').fadeOut('slow');
+        }, 5000);
+    </script>
+}

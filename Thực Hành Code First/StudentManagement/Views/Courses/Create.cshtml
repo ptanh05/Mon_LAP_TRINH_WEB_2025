@@ -1,0 +1,83 @@
+@model StudentManagement.Models.Course
+
+@{
+    ViewData["Title"] = "Thêm Khóa học Mới";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title mb-0">
+                        <i class="fas fa-plus"></i> Thêm Khóa học Mới
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="CourseCode" class="form-label">Mã khóa học *</label>
+                                    <input asp-for="CourseCode" class="form-control" placeholder="VD: CS101" />
+                                    <span asp-validation-for="CourseCode" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="Credits" class="form-label">Số tín chỉ *</label>
+                                    <input asp-for="Credits" class="form-control" type="number" min="1" max="10" />
+                                    <span asp-validation-for="Credits" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Title" class="form-label">Tên khóa học *</label>
+                            <input asp-for="Title" class="form-control" placeholder="VD: Lập trình Cơ bản" />
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Description" class="form-label">Mô tả</label>
+                            <textarea asp-for="Description" class="form-control" rows="4" placeholder="Mô tả chi tiết về khóa học..."></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <a asp-action="Index" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left"></i> Quay lại
+                            </a>
+                            <button type="submit" class="btn btn-success">
+                                <i class="fas fa-save"></i> Lưu Khóa học
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-info-circle"></i> Hướng dẫn
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check text-success"></i> Mã khóa học phải duy nhất</li>
+                        <li><i class="fas fa-check text-success"></i> Tên khóa học là bắt buộc</li>
+                        <li><i class="fas fa-check text-success"></i> Số tín chỉ từ 1-10</li>
+                        <li><i class="fas fa-check text-success"></i> Mô tả là tùy chọn</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

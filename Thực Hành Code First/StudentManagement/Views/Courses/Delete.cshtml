@@ -1,0 +1,100 @@
+@model StudentManagement.Models.Course
+
+@{
+    ViewData["Title"] = "Xóa Khóa học";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title mb-0 text-danger">
+                        <i class="fas fa-exclamation-triangle"></i> Xác nhận Xóa Khóa học
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-danger">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <strong>Cảnh báo:</strong> Bạn có chắc chắn muốn xóa khóa học này? 
+                        Tất cả các đăng ký liên quan cũng sẽ bị xóa và không thể khôi phục.
+                    </div>
+
+                    <dl class="row">
+                        <dt class="col-sm-3">Mã khóa học:</dt>
+                        <dd class="col-sm-9">
+                            <span class="badge bg-primary">@Html.DisplayFor(model => model.CourseCode)</span>
+                        </dd>
+
+                        <dt class="col-sm-3">Tên khóa học:</dt>
+                        <dd class="col-sm-9">
+                            <strong>@Html.DisplayFor(model => model.Title)</strong>
+                        </dd>
+
+                        <dt class="col-sm-3">Số tín chỉ:</dt>
+                        <dd class="col-sm-9">
+                            <span class="badge bg-info">@Html.DisplayFor(model => model.Credits) tín chỉ</span>
+                        </dd>
+
+                        <dt class="col-sm-3">Mô tả:</dt>
+                        <dd class="col-sm-9">
+                            @if (!string.IsNullOrEmpty(Model.Description))
+                            {
+                                @Html.DisplayFor(model => model.Description)
+                            }
+                            else
+                            {
+                                <span class="text-muted">Chưa có mô tả</span>
+                            }
+                        </dd>
+
+                        <dt class="col-sm-3">Số sinh viên đăng ký:</dt>
+                        <dd class="col-sm-9">
+                            <span class="badge bg-warning">@Model.Enrollments.Count sinh viên</span>
+                        </dd>
+                    </dl>
+
+                    @if (Model.Enrollments.Any())
+                    {
+                        <div class="alert alert-warning">
+                            <i class="fas fa-info-circle"></i>
+                            <strong>Lưu ý:</strong> Khóa học này có @Model.Enrollments.Count sinh viên đăng ký. 
+                            Việc xóa sẽ xóa tất cả các đăng ký này.
+                        </div>
+                    }
+
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="Id" />
+                        <div class="d-flex justify-content-between">
+                            <a asp-action="Index" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left"></i> Quay lại
+                            </a>
+                            <button type="submit" class="btn btn-danger">
+                                <i class="fas fa-trash"></i> Xác nhận Xóa
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-info-circle"></i> Thông tin
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <p class="text-muted">
+                        Khi xóa khóa học, hệ thống sẽ:
+                    </p>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-times text-danger"></i> Xóa khóa học</li>
+                        <li><i class="fas fa-times text-danger"></i> Xóa tất cả đăng ký liên quan</li>
+                        <li><i class="fas fa-times text-danger"></i> Không thể khôi phục</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

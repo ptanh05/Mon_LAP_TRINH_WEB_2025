@@ -107,6 +107,119 @@ namespace StudentManagement.Controllers
             return value;
         }
 
+        [HttpGet]
+        public IActionResult ImportCsv()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ImportCsv(IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+            {
+                ModelState.AddModelError("", "Vui lòng chọn file CSV.");
+                return View();
+            }
+
+            if (!file.FileName.EndsWith(".csv", StringComparison.OrdinalIgnoreCase))
+            {
+                ModelState.AddModelError("", "File phải có định dạng CSV.");
+                return View();
+            }
+
+            var students = new List<Student>();
+            var errors = new List<string>();
+            int lineNumber = 0;
+
+            using (var stream = file.OpenReadStream())
+            using (var reader = new StreamReader(stream))
+            {
+                string line;
+                while ((line = await reader.ReadLineAsync()) != null)
+                {
+                    lineNumber++;
+                    if (lineNumber == 1) continue; // Skip header
+
+                    var parts = line.Split(',');
+                    if (parts.Length < 4)
+                    {
+                        errors.Add($"Dòng {lineNumber}: Không đủ thông tin (cần ít nhất 4 cột)");
+                        continue;
+                    }
+
+                    try
+                    {
+                        var name = parts[0].Trim('"');
+                        var email = parts[1].Trim('"');
+                        var birthDateStr = parts[2].Trim('"');
+                        var phoneNumber = parts.Length > 3 ? parts[3].Trim('"') : "";
+                        var address = parts.Length > 4 ? parts[4].Trim('"') : "";
+
+                        // Validate email
+                        if (string.IsNullOrWhiteSpace(email) || !email.Contains("@"))
+                        {
+                            errors.Add($"Dòng {lineNumber}: Email không hợp lệ");
+                            continue;
+                        }
+
+                        // Check duplicate email
+                        if (await _context.Students.AnyAsync(s => s.Email == email))
+                        {
+                            errors.Add($"Dòng {lineNumber}: Email '{email}' đã tồn tại");
+                            continue;
+                        }
+
+                        // Parse birth date
+                        if (!DateTime.TryParse(birthDateStr, out DateTime birthDate))
+                        {
+                            errors.Add($"Dòng {lineNumber}: Ngày sinh không hợp lệ");
+                            continue;
+                        }
+
+                        students.Add(new Student
+                        {
+                            Name = name,
+                            Email = email,
+                            BirthDate = birthDate,
+                            PhoneNumber = string.IsNullOrWhiteSpace(phoneNumber) ? null : phoneNumber,
+                            Address = string.IsNullOrWhiteSpace(address) ? null : address
+                        });
+                    }
+                    catch (Exception ex)
+                    {
+                        errors.Add($"Dòng {lineNumber}: Lỗi xử lý - {ex.Message}");
+                    }
+                }
+            }
+
+            if (students.Any())
+            {
+                await _context.Students.AddRangeAsync(students);
+                await _context.SaveChangesAsync();
+                
+                TempData["SuccessMessage"] = $"Đã import thành công {students.Count} sinh viên.";
+                if (errors.Any())
+                {
+                    TempData["WarningMessage"] = $"Có {errors.Count} dòng bị lỗi: " + string.Join("; ", errors.Take(5));
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("", "Không có dữ liệu hợp lệ để import.");
+                if (errors.Any())
+                {
+                    foreach (var error in errors.Take(10))
+                    {
+                        ModelState.AddModelError("", error);
+                    }
+                }
+            }
+
+            return View();
+        }
+
         /// <summary>
         /// GET: Students/Details/5 - Hiển thị chi tiết thông tin sinh viên
         /// </summary>
