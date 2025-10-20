@@ -25,15 +25,86 @@ namespace StudentManagement.Controllers
         /// GET: Students - Hiển thị danh sách tất cả sinh viên
         /// </summary>
         /// <returns>View chứa danh sách sinh viên</returns>
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? search, string? sortBy, string? sortDir, int page = 1, int pageSize = 10)
         {
-            // Lấy danh sách sinh viên từ database
-            var students = await _context.Students
-                .Include(s => s.Enrollments)
-                    .ThenInclude(e => e.Course)
+            var query = _context.Students.AsQueryable();
+
+            // Search by name or email
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                var term = search.Trim();
+                query = query.Where(s => s.Name.Contains(term) || s.Email.Contains(term));
+            }
+
+            // Sorting
+            bool desc = string.Equals(sortDir, "desc", StringComparison.OrdinalIgnoreCase);
+            query = sortBy?.ToLower() switch
+            {
+                "name" => desc ? query.OrderByDescending(s => s.Name) : query.OrderBy(s => s.Name),
+                "email" => desc ? query.OrderByDescending(s => s.Email) : query.OrderBy(s => s.Email),
+                "birthdate" => desc ? query.OrderByDescending(s => s.BirthDate) : query.OrderBy(s => s.BirthDate),
+                _ => desc ? query.OrderByDescending(s => s.Id) : query.OrderBy(s => s.Id)
+            };
+
+            // Pagination
+            if (page <= 0) page = 1;
+            if (pageSize <= 0) pageSize = 10;
+            var totalItems = await query.CountAsync();
+            var items = await query
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
                 .ToListAsync();
 
-            return View(students);
+            var vm = new StudentManagement.Models.StudentListViewModel
+            {
+                Students = items,
+                Search = search,
+                SortBy = sortBy,
+                SortDir = sortDir,
+                Page = page,
+                PageSize = pageSize,
+                TotalItems = totalItems
+            };
+
+            return View(vm);
+        }
+
+        [HttpGet]
+        public async Task<FileResult> ExportCsv(string? search)
+        {
+            var query = _context.Students.AsQueryable();
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                var term = search.Trim();
+                query = query.Where(s => s.Name.Contains(term) || s.Email.Contains(term));
+            }
+            var list = await query.OrderBy(s => s.Id).ToListAsync();
+
+            System.Text.StringBuilder sb = new();
+            sb.AppendLine("Id,Name,BirthDate,Email,PhoneNumber,Address");
+            foreach (var s in list)
+            {
+                string line = string.Join(",",
+                    s.Id,
+                    EscapeCsv(s.Name),
+                    s.BirthDate.ToString("yyyy-MM-dd"),
+                    EscapeCsv(s.Email),
+                    EscapeCsv(s.PhoneNumber ?? string.Empty),
+                    EscapeCsv(s.Address ?? string.Empty));
+                sb.AppendLine(line);
+            }
+
+            var bytes = System.Text.Encoding.UTF8.GetBytes(sb.ToString());
+            return File(bytes, "text/csv", "students.csv");
+        }
+
+        private static string EscapeCsv(string value)
+        {
+            if (value.Contains('"') || value.Contains(',') || value.Contains('\n') || value.Contains('\r'))
+            {
+                value = '"' + value.Replace("\"", "\"\"") + '"';
+            }
+            return value;
         }
 
         /// <summary>
@@ -80,6 +151,18 @@ namespace StudentManagement.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,BirthDate,Email,PhoneNumber,Address")] Student student)
         {
+            // Kiểm tra email trùng trước khi lưu
+            if (!string.IsNullOrWhiteSpace(student.Email))
+            {
+                var normalizedEmail = student.Email.Trim();
+                bool emailExists = await _context.Students
+                    .AnyAsync(s => s.Email == normalizedEmail);
+                if (emailExists)
+                {
+                    ModelState.AddModelError("Email", "Email đã tồn tại. Vui lòng dùng email khác.");
+                }
+            }
+
             if (ModelState.IsValid)
             {
                 // Thêm sinh viên mới vào database
@@ -128,6 +211,18 @@ namespace StudentManagement.Controllers
             if (id != student.Id)
             {
                 return NotFound();
+            }
+
+            // Kiểm tra email trùng với người khác
+            if (!string.IsNullOrWhiteSpace(student.Email))
+            {
+                var normalizedEmail = student.Email.Trim();
+                bool emailExists = await _context.Students
+                    .AnyAsync(s => s.Email == normalizedEmail && s.Id != student.Id);
+                if (emailExists)
+                {
+                    ModelState.AddModelError("Email", "Email đã tồn tại. Vui lòng dùng email khác.");
+                }
             }
 
             if (ModelState.IsValid)

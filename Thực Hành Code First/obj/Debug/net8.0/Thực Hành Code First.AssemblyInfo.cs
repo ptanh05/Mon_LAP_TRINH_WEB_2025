@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Thực Hành Code First")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+690d5ede19d02992b8514983b1bc3ef186cb8bc2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2414ca24da5baa6136c222db9866d7f98b60f91e")]
 [assembly: System.Reflection.AssemblyProductAttribute("Thực Hành Code First")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Thực Hành Code First")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

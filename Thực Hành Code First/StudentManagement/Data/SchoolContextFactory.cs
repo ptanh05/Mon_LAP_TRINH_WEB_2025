@@ -18,8 +18,8 @@ namespace StudentManagement.Data
         {
             var optionsBuilder = new DbContextOptionsBuilder<SchoolContext>();
             
-            // Sử dụng LocalDB connection string cho design time
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=SchoolDB;Trusted_Connection=true;MultipleActiveResultSets=true");
+            // Sử dụng cùng instance SQL Server với runtime (SQLEXPRESS)
+            optionsBuilder.UseSqlServer("Server=PHUNGTHEANH\\SQLEXPRESS;Database=StudentManagementDb;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True");
             
             return new SchoolContext(optionsBuilder.Options);
         }
