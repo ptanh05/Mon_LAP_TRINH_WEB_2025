@@ -1,0 +1,193 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Th\u1EF1c h\u00E0nh c\u00E1c m\u00F4n tr\u00EAn l\u1EDBp n\u0103m 3\\Mon_LAP_TRINH_WEB_2025\\Pta_231220711_DE01\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{99574A5D-FDF8-42EA-B6AD-A32BF604AACC}|Pta_231220711_DE01.csproj|d:\\th\u1EF1c h\u00E0nh c\u00E1c m\u00F4n tr\u00EAn l\u1EDBp n\u0103m 3\\mon_lap_trinh_web_2025\\pta_231220711_de01\\views\\ptacomputer\\ptaindex.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{99574A5D-FDF8-42EA-B6AD-A32BF604AACC}|Pta_231220711_DE01.csproj|solutionrelative:views\\ptacomputer\\ptaindex.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99574A5D-FDF8-42EA-B6AD-A32BF604AACC}|Pta_231220711_DE01.csproj|d:\\th\u1EF1c h\u00E0nh c\u00E1c m\u00F4n tr\u00EAn l\u1EDBp n\u0103m 3\\mon_lap_trinh_web_2025\\pta_231220711_de01\\controllers\\ptacomputercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99574A5D-FDF8-42EA-B6AD-A32BF604AACC}|Pta_231220711_DE01.csproj|solutionrelative:controllers\\ptacomputercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99574A5D-FDF8-42EA-B6AD-A32BF604AACC}|Pta_231220711_DE01.csproj|d:\\th\u1EF1c h\u00E0nh c\u00E1c m\u00F4n tr\u00EAn l\u1EDBp n\u0103m 3\\mon_lap_trinh_web_2025\\pta_231220711_de01\\views\\shared\\_ptalayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{99574A5D-FDF8-42EA-B6AD-A32BF604AACC}|Pta_231220711_DE01.csproj|solutionrelative:views\\shared\\_ptalayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99574A5D-FDF8-42EA-B6AD-A32BF604AACC}|Pta_231220711_DE01.csproj|d:\\th\u1EF1c h\u00E0nh c\u00E1c m\u00F4n tr\u00EAn l\u1EDBp n\u0103m 3\\mon_lap_trinh_web_2025\\pta_231220711_de01\\views\\ptahome\\ptacontact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{99574A5D-FDF8-42EA-B6AD-A32BF604AACC}|Pta_231220711_DE01.csproj|solutionrelative:views\\ptahome\\ptacontact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99574A5D-FDF8-42EA-B6AD-A32BF604AACC}|Pta_231220711_DE01.csproj|d:\\th\u1EF1c h\u00E0nh c\u00E1c m\u00F4n tr\u00EAn l\u1EDBp n\u0103m 3\\mon_lap_trinh_web_2025\\pta_231220711_de01\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{99574A5D-FDF8-42EA-B6AD-A32BF604AACC}|Pta_231220711_DE01.csproj|solutionrelative:views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99574A5D-FDF8-42EA-B6AD-A32BF604AACC}|Pta_231220711_DE01.csproj|d:\\th\u1EF1c h\u00E0nh c\u00E1c m\u00F4n tr\u00EAn l\u1EDBp n\u0103m 3\\mon_lap_trinh_web_2025\\pta_231220711_de01\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{99574A5D-FDF8-42EA-B6AD-A32BF604AACC}|Pta_231220711_DE01.csproj|solutionrelative:views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99574A5D-FDF8-42EA-B6AD-A32BF604AACC}|Pta_231220711_DE01.csproj|d:\\th\u1EF1c h\u00E0nh c\u00E1c m\u00F4n tr\u00EAn l\u1EDBp n\u0103m 3\\mon_lap_trinh_web_2025\\pta_231220711_de01\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99574A5D-FDF8-42EA-B6AD-A32BF604AACC}|Pta_231220711_DE01.csproj|solutionrelative:models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99574A5D-FDF8-42EA-B6AD-A32BF604AACC}|Pta_231220711_DE01.csproj|d:\\th\u1EF1c h\u00E0nh c\u00E1c m\u00F4n tr\u00EAn l\u1EDBp n\u0103m 3\\mon_lap_trinh_web_2025\\pta_231220711_de01\\controllers\\ptahomecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99574A5D-FDF8-42EA-B6AD-A32BF604AACC}|Pta_231220711_DE01.csproj|solutionrelative:controllers\\ptahomecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99574A5D-FDF8-42EA-B6AD-A32BF604AACC}|Pta_231220711_DE01.csproj|d:\\th\u1EF1c h\u00E0nh c\u00E1c m\u00F4n tr\u00EAn l\u1EDBp n\u0103m 3\\mon_lap_trinh_web_2025\\pta_231220711_de01\\models\\ptacomputer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99574A5D-FDF8-42EA-B6AD-A32BF604AACC}|Pta_231220711_DE01.csproj|solutionrelative:models\\ptacomputer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0174dea2-fdbe-4ef1-8f99-c0beae78880f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PtaIndex.cshtml",
+              "DocumentMoniker": "D:\\Th\u1EF1c h\u00E0nh c\u00E1c m\u00F4n tr\u00EAn l\u1EDBp n\u0103m 3\\Mon_LAP_TRINH_WEB_2025\\Pta_231220711_DE01\\Views\\PtaComputer\\PtaIndex.cshtml",
+              "RelativeDocumentMoniker": "Views\\PtaComputer\\PtaIndex.cshtml",
+              "ToolTip": "D:\\Th\u1EF1c h\u00E0nh c\u00E1c m\u00F4n tr\u00EAn l\u1EDBp n\u0103m 3\\Mon_LAP_TRINH_WEB_2025\\Pta_231220711_DE01\\Views\\PtaComputer\\PtaIndex.cshtml",
+              "RelativeToolTip": "Views\\PtaComputer\\PtaIndex.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-24T02:02:35.673Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PtaComputerController.cs",
+              "DocumentMoniker": "D:\\Th\u1EF1c h\u00E0nh c\u00E1c m\u00F4n tr\u00EAn l\u1EDBp n\u0103m 3\\Mon_LAP_TRINH_WEB_2025\\Pta_231220711_DE01\\Controllers\\PtaComputerController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PtaComputerController.cs",
+              "ToolTip": "D:\\Th\u1EF1c h\u00E0nh c\u00E1c m\u00F4n tr\u00EAn l\u1EDBp n\u0103m 3\\Mon_LAP_TRINH_WEB_2025\\Pta_231220711_DE01\\Controllers\\PtaComputerController.cs",
+              "RelativeToolTip": "Controllers\\PtaComputerController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-24T01:58:30.995Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PtaHomeController.cs",
+              "DocumentMoniker": "D:\\Th\u1EF1c h\u00E0nh c\u00E1c m\u00F4n tr\u00EAn l\u1EDBp n\u0103m 3\\Mon_LAP_TRINH_WEB_2025\\Pta_231220711_DE01\\Controllers\\PtaHomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PtaHomeController.cs",
+              "ToolTip": "D:\\Th\u1EF1c h\u00E0nh c\u00E1c m\u00F4n tr\u00EAn l\u1EDBp n\u0103m 3\\Mon_LAP_TRINH_WEB_2025\\Pta_231220711_DE01\\Controllers\\PtaHomeController.cs",
+              "RelativeToolTip": "Controllers\\PtaHomeController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABQAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-24T00:45:35.501Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "D:\\Th\u1EF1c h\u00E0nh c\u00E1c m\u00F4n tr\u00EAn l\u1EDBp n\u0103m 3\\Mon_LAP_TRINH_WEB_2025\\Pta_231220711_DE01\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\ErrorViewModel.cs",
+              "ToolTip": "D:\\Th\u1EF1c h\u00E0nh c\u00E1c m\u00F4n tr\u00EAn l\u1EDBp n\u0103m 3\\Mon_LAP_TRINH_WEB_2025\\Pta_231220711_DE01\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "Models\\ErrorViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-24T01:15:32.846Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_PtaLayout.cshtml",
+              "DocumentMoniker": "D:\\Th\u1EF1c h\u00E0nh c\u00E1c m\u00F4n tr\u00EAn l\u1EDBp n\u0103m 3\\Mon_LAP_TRINH_WEB_2025\\Pta_231220711_DE01\\Views\\Shared\\_PtaLayout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_PtaLayout.cshtml",
+              "ToolTip": "D:\\Th\u1EF1c h\u00E0nh c\u00E1c m\u00F4n tr\u00EAn l\u1EDBp n\u0103m 3\\Mon_LAP_TRINH_WEB_2025\\Pta_231220711_DE01\\Views\\Shared\\_PtaLayout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_PtaLayout.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAsAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-24T01:23:03.987Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "D:\\Th\u1EF1c h\u00E0nh c\u00E1c m\u00F4n tr\u00EAn l\u1EDBp n\u0103m 3\\Mon_LAP_TRINH_WEB_2025\\Pta_231220711_DE01\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "Views\\_ViewStart.cshtml",
+              "ToolTip": "D:\\Th\u1EF1c h\u00E0nh c\u00E1c m\u00F4n tr\u00EAn l\u1EDBp n\u0103m 3\\Mon_LAP_TRINH_WEB_2025\\Pta_231220711_DE01\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "Views\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-24T01:20:00.29Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "D:\\Th\u1EF1c h\u00E0nh c\u00E1c m\u00F4n tr\u00EAn l\u1EDBp n\u0103m 3\\Mon_LAP_TRINH_WEB_2025\\Pta_231220711_DE01\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "Views\\_ViewImports.cshtml",
+              "ToolTip": "D:\\Th\u1EF1c h\u00E0nh c\u00E1c m\u00F4n tr\u00EAn l\u1EDBp n\u0103m 3\\Mon_LAP_TRINH_WEB_2025\\Pta_231220711_DE01\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-24T01:19:55.467Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PtaContact.cshtml",
+              "DocumentMoniker": "D:\\Th\u1EF1c h\u00E0nh c\u00E1c m\u00F4n tr\u00EAn l\u1EDBp n\u0103m 3\\Mon_LAP_TRINH_WEB_2025\\Pta_231220711_DE01\\Views\\PtaHome\\PtaContact.cshtml",
+              "RelativeDocumentMoniker": "Views\\PtaHome\\PtaContact.cshtml",
+              "ToolTip": "D:\\Th\u1EF1c h\u00E0nh c\u00E1c m\u00F4n tr\u00EAn l\u1EDBp n\u0103m 3\\Mon_LAP_TRINH_WEB_2025\\Pta_231220711_DE01\\Views\\PtaHome\\PtaContact.cshtml",
+              "RelativeToolTip": "Views\\PtaHome\\PtaContact.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-24T01:31:01.509Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "PtaComputer.cs",
+              "DocumentMoniker": "D:\\Th\u1EF1c h\u00E0nh c\u00E1c m\u00F4n tr\u00EAn l\u1EDBp n\u0103m 3\\Mon_LAP_TRINH_WEB_2025\\Pta_231220711_DE01\\Models\\PtaComputer.cs",
+              "RelativeDocumentMoniker": "Models\\PtaComputer.cs",
+              "ToolTip": "D:\\Th\u1EF1c h\u00E0nh c\u00E1c m\u00F4n tr\u00EAn l\u1EDBp n\u0103m 3\\Mon_LAP_TRINH_WEB_2025\\Pta_231220711_DE01\\Models\\PtaComputer.cs",
+              "RelativeToolTip": "Models\\PtaComputer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-24T00:48:40.206Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Pta_231220711_DE01.Models.PtaComputer>
+@{
+    ViewData["Title"] = "Danh sách máy tính";
+}
+
+<h2>Danh sách máy tính</h2>
+
+<p>
+    <a asp-action="PtaCreate" class="btn btn-primary">Thêm mới</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Tên máy tính</th>
+            <th>Giá</th>
+            <th>Hình ảnh</th>
+            <th>Trạng thái</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.PtaComName</td>
+                <td>@item.PtaComPrice.ToString("N0") VNĐ</td>
+                <td>@item.PtaComImage</td>
+                <td>@(item.PtaStatus ? "Còn hàng" : "Hết hàng")</td>
+                <td>
+                    <a asp-action="PtaDetails" asp-route-id="@item.PtaComId" class="btn btn-info">Xem</a>
+                    <a asp-action="PtaEdit" asp-route-id="@item.PtaComId" class="btn btn-warning">Sửa</a>
+                    <a asp-action="PtaDelete" asp-route-id="@item.PtaComId" class="btn btn-danger">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

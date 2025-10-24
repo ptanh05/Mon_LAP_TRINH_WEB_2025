@@ -1,0 +1,29 @@
+@model Pta_231220711_DE01.Models.PtaComputer
+@{
+    ViewData["Title"] = "Chi tiết máy tính";
+}
+
+<h2>Chi tiết máy tính</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <dl class="dl-horizontal">
+            <dt>Tên máy tính:</dt>
+            <dd>@Model.PtaComName</dd>
+            
+            <dt>Giá:</dt>
+            <dd>@Model.PtaComPrice.ToString("N0") VNĐ</dd>
+            
+            <dt>Hình ảnh:</dt>
+            <dd>@Model.PtaComImage</dd>
+            
+            <dt>Trạng thái:</dt>
+            <dd>@(Model.PtaStatus ? "Còn hàng" : "Hết hàng")</dd>
+        </dl>
+    </div>
+</div>
+
+<div>
+    <a asp-action="PtaEdit" asp-route-id="@Model.PtaComId" class="btn btn-warning">Sửa</a>
+    <a asp-action="PtaIndex" class="btn btn-secondary">Quay lại</a>
+</div>
