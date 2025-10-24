@@ -1,0 +1,255 @@
+@model IEnumerable<StudentManagement.Models.ClassSection>
+
+@{
+    ViewData["Title"] = "Quản lý Lớp học phần";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2><i class="fas fa-chalkboard"></i> Quản lý Lớp học phần</h2>
+                <a asp-action="Create" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> Thêm Lớp học phần
+                </a>
+            </div>
+
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <i class="fas fa-check-circle"></i> @TempData["SuccessMessage"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            }
+
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="fas fa-exclamation-circle"></i> @TempData["ErrorMessage"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            }
+
+            <!-- Search and Filter -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <form asp-action="Index" method="get">
+                        <div class="row g-3">
+                            <div class="col-md-8">
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                    <input type="text" name="searchString" value="@ViewData["CurrentFilter"]" 
+                                           class="form-control" placeholder="Tìm kiếm theo mã lớp, khóa học, giảng viên, phòng...">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="d-flex gap-2">
+                                    <button type="submit" class="btn btn-outline-primary">
+                                        <i class="fas fa-search"></i> Tìm kiếm
+                                    </button>
+                                    <a asp-action="Index" class="btn btn-outline-secondary">
+                                        <i class="fas fa-times"></i> Xóa bộ lọc
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Class Sections Table -->
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-list"></i> Danh sách Lớp học phần
+                        <span class="badge bg-primary ms-2">@Model.Count()</span>
+                    </h5>
+                </div>
+                <div class="card-body p-0">
+                    @if (Model.Any())
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>
+                                            <a asp-action="Index" asp-route-sortOrder="@ViewData["SectionCodeSortParm"]" asp-route-searchString="@ViewData["CurrentFilter"]">
+                                                Mã lớp
+                                                @if (ViewData["SectionCodeSortParm"].ToString() == "sectioncode_desc")
+                                                {
+                                                    <i class="fas fa-sort-down"></i>
+                                                }
+                                                else if (ViewData["SectionCodeSortParm"].ToString() == "")
+                                                {
+                                                    <i class="fas fa-sort-up"></i>
+                                                }
+                                                else
+                                                {
+                                                    <i class="fas fa-sort"></i>
+                                                }
+                                            </a>
+                                        </th>
+                                        <th>
+                                            <a asp-action="Index" asp-route-sortOrder="@ViewData["CourseSortParm"]" asp-route-searchString="@ViewData["CurrentFilter"]">
+                                                Khóa học
+                                                @if (ViewData["CourseSortParm"].ToString() == "course_desc")
+                                                {
+                                                    <i class="fas fa-sort-down"></i>
+                                                }
+                                                else if (ViewData["CourseSortParm"].ToString() == "Course")
+                                                {
+                                                    <i class="fas fa-sort-up"></i>
+                                                }
+                                                else
+                                                {
+                                                    <i class="fas fa-sort"></i>
+                                                }
+                                            </a>
+                                        </th>
+                                        <th>
+                                            <a asp-action="Index" asp-route-sortOrder="@ViewData["InstructorSortParm"]" asp-route-searchString="@ViewData["CurrentFilter"]">
+                                                Giảng viên
+                                                @if (ViewData["InstructorSortParm"].ToString() == "instructor_desc")
+                                                {
+                                                    <i class="fas fa-sort-down"></i>
+                                                }
+                                                else if (ViewData["InstructorSortParm"].ToString() == "Instructor")
+                                                {
+                                                    <i class="fas fa-sort-up"></i>
+                                                }
+                                                else
+                                                {
+                                                    <i class="fas fa-sort"></i>
+                                                }
+                                            </a>
+                                        </th>
+                                        <th>
+                                            <a asp-action="Index" asp-route-sortOrder="@ViewData["CapacitySortParm"]" asp-route-searchString="@ViewData["CurrentFilter"]">
+                                                Sức chứa
+                                                @if (ViewData["CapacitySortParm"].ToString() == "capacity_desc")
+                                                {
+                                                    <i class="fas fa-sort-down"></i>
+                                                }
+                                                else if (ViewData["CapacitySortParm"].ToString() == "Capacity")
+                                                {
+                                                    <i class="fas fa-sort-up"></i>
+                                                }
+                                                else
+                                                {
+                                                    <i class="fas fa-sort"></i>
+                                                }
+                                            </a>
+                                        </th>
+                                        <th>Phòng</th>
+                                        <th>Lịch học</th>
+                                        <th>Trạng thái</th>
+                                        <th class="text-center">Thao tác</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <span class="badge bg-primary">@item.SectionCode</span>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <div class="fw-bold">@item.Course.Title</div>
+                                                    <small class="text-muted">@item.Course.CourseCode</small>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-sm bg-info text-white rounded-circle d-flex align-items-center justify-content-center me-2">
+                                                        <i class="fas fa-user"></i>
+                                                    </div>
+                                                    <div>
+                                                        <div class="fw-bold">@item.Instructor.FullName</div>
+                                                        <small class="text-muted">@item.Instructor.Department</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="progress me-2" style="width: 60px; height: 8px;">
+                                                        <div class="progress-bar @(item.CurrentEnrollment >= item.MaxCapacity ? "bg-danger" : item.CurrentEnrollment >= item.MaxCapacity * 0.8 ? "bg-warning" : "bg-success")" 
+                                                             style="width: @((double)item.CurrentEnrollment / item.MaxCapacity * 100)%"></div>
+                                                    </div>
+                                                    <span class="small">@item.CurrentEnrollment/@item.MaxCapacity</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                @if (!string.IsNullOrEmpty(item.Room))
+                                                {
+                                                    <span class="badge bg-secondary">@item.Room</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="text-muted">Chưa cập nhật</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (!string.IsNullOrEmpty(item.Schedule))
+                                                {
+                                                    <small>@item.Schedule</small>
+                                                }
+                                                else
+                                                {
+                                                    <span class="text-muted">Chưa cập nhật</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (item.IsActive)
+                                                {
+                                                    <span class="badge bg-success">Hoạt động</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge bg-secondary">Không hoạt động</span>
+                                                }
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="btn-group" role="group">
+                                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-info btn-sm" title="Xem chi tiết">
+                                                        <i class="fas fa-eye"></i>
+                                                    </a>
+                                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-warning btn-sm" title="Chỉnh sửa">
+                                                        <i class="fas fa-edit"></i>
+                                                    </a>
+                                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm" title="Xóa">
+                                                        <i class="fas fa-trash"></i>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center py-5">
+                            <i class="fas fa-chalkboard fa-3x text-muted mb-3"></i>
+                            <h5 class="text-muted">Chưa có lớp học phần nào</h5>
+                            <p class="text-muted">Hãy thêm lớp học phần đầu tiên để bắt đầu quản lý.</p>
+                            <a asp-action="Create" class="btn btn-primary">
+                                <i class="fas fa-plus"></i> Thêm Lớp học phần
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Auto-hide success/error messages after 5 seconds
+        setTimeout(function() {
+            $('.alert').fadeOut('slow');
+        }, 5000);
+    </script>
+}

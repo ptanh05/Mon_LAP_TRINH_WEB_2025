@@ -1,0 +1,139 @@
+@model StudentManagement.Models.Instructor
+
+@{
+    ViewData["Title"] = "Xóa Giảng viên";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2><i class="fas fa-user-times"></i> Xóa Giảng viên</h2>
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Quay lại
+                </a>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="alert alert-danger" role="alert">
+                        <h5 class="alert-heading"><i class="fas fa-exclamation-triangle"></i> Cảnh báo!</h5>
+                        <p class="mb-0">Bạn có chắc chắn muốn xóa giảng viên này? Hành động này không thể hoàn tác.</p>
+                    </div>
+
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-danger text-white">
+                            <h5 class="mb-0"><i class="fas fa-user"></i> Thông tin Giảng viên sẽ bị xóa</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row mb-3">
+                                <div class="col-sm-4 fw-bold">Họ tên:</div>
+                                <div class="col-sm-8">@Model.FullName</div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-4 fw-bold">Email:</div>
+                                <div class="col-sm-8">@Model.Email</div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-4 fw-bold">Số điện thoại:</div>
+                                <div class="col-sm-8">
+                                    @if (!string.IsNullOrEmpty(Model.PhoneNumber))
+                                    {
+                                        @Model.PhoneNumber
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">Chưa cập nhật</span>
+                                    }
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-4 fw-bold">Khoa:</div>
+                                <div class="col-sm-8">
+                                    @if (!string.IsNullOrEmpty(Model.Department))
+                                    {
+                                        @Model.Department
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">Chưa cập nhật</span>
+                                    }
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-4 fw-bold">Chuyên môn:</div>
+                                <div class="col-sm-8">
+                                    @if (!string.IsNullOrEmpty(Model.Specialization))
+                                    {
+                                        @Model.Specialization
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">Chưa cập nhật</span>
+                                    }
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-4 fw-bold">Ngày thuê:</div>
+                                <div class="col-sm-8">@Model.HireDate.ToString("dd/MM/yyyy")</div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-4 fw-bold">Trạng thái:</div>
+                                <div class="col-sm-8">
+                                    @if (Model.IsActive)
+                                    {
+                                        <span class="badge bg-success">Hoạt động</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-secondary">Không hoạt động</span>
+                                    }
+                                </div>
+                            </div>
+
+                            @if (Model.ClassSections.Any())
+                            {
+                                <div class="alert alert-warning mt-3" role="alert">
+                                    <h6 class="alert-heading"><i class="fas fa-exclamation-circle"></i> Lưu ý quan trọng</h6>
+                                    <p class="mb-2">Giảng viên này đang có <strong>@Model.ClassSections.Count()</strong> lớp học phần:</p>
+                                    <ul class="mb-0">
+                                        @foreach (var section in Model.ClassSections.Take(3))
+                                        {
+                                            <li>@(section.SectionCode) - @(section.Course.Title)</li>
+                                        }
+                                        @if (Model.ClassSections.Count() > 3)
+                                        {
+                                            <li>... và @(Model.ClassSections.Count() - 3) lớp khác</li>
+                                        }
+                                    </ul>
+                                    <p class="mb-0 mt-2"><strong>Không thể xóa giảng viên đang có lớp học phần hoạt động!</strong></p>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+                    <form asp-action="Delete" class="mt-4">
+                        <input type="hidden" asp-for="Id" />
+                        <div class="d-flex justify-content-between">
+                            <a asp-action="Index" class="btn btn-secondary">
+                                <i class="fas fa-times"></i> Hủy
+                            </a>
+                            @if (!Model.ClassSections.Any(cs => cs.IsActive))
+                            {
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="fas fa-trash"></i> Xác nhận xóa
+                                </button>
+                            }
+                            else
+                            {
+                                <button type="button" class="btn btn-danger" disabled>
+                                    <i class="fas fa-ban"></i> Không thể xóa
+                                </button>
+                            }
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

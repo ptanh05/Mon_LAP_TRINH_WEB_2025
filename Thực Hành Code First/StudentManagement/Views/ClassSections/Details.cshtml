@@ -1,0 +1,188 @@
+@model StudentManagement.Models.ClassSection
+
+@{
+    ViewData["Title"] = "Chi tiết Lớp học phần";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2><i class="fas fa-chalkboard"></i> Chi tiết Lớp học phần</h2>
+                <div>
+                    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">
+                        <i class="fas fa-edit"></i> Chỉnh sửa
+                    </a>
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Quay lại
+                    </a>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Class Section Information -->
+                <div class="col-md-6">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0"><i class="fas fa-info-circle"></i> Thông tin Lớp học phần</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row mb-3">
+                                <div class="col-sm-4 fw-bold">Mã lớp:</div>
+                                <div class="col-sm-8">
+                                    <span class="badge bg-primary fs-6">@Model.SectionCode</span>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-4 fw-bold">Khóa học:</div>
+                                <div class="col-sm-8">
+                                    <div>
+                                        <div class="fw-bold">@Model.Course.Title</div>
+                                        <small class="text-muted">@Model.Course.CourseCode - @Model.Course.Credits tín chỉ</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-4 fw-bold">Giảng viên:</div>
+                                <div class="col-sm-8">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-sm bg-info text-white rounded-circle d-flex align-items-center justify-content-center me-2">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                        <div>
+                                            <div class="fw-bold">@Model.Instructor.FullName</div>
+                                            <small class="text-muted">@Model.Instructor.Department</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-4 fw-bold">Sức chứa:</div>
+                                <div class="col-sm-8">
+                                    <div class="d-flex align-items-center">
+                                        <div class="progress me-2" style="width: 100px; height: 10px;">
+                                            <div class="progress-bar @(Model.CurrentEnrollment >= Model.MaxCapacity ? "bg-danger" : Model.CurrentEnrollment >= Model.MaxCapacity * 0.8 ? "bg-warning" : "bg-success")" 
+                                                 style="width: @((double)Model.CurrentEnrollment / Model.MaxCapacity * 100)%"></div>
+                                        </div>
+                                        <span class="fw-bold">@Model.CurrentEnrollment/@Model.MaxCapacity</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-4 fw-bold">Phòng học:</div>
+                                <div class="col-sm-8">
+                                    @if (!string.IsNullOrEmpty(Model.Room))
+                                    {
+                                        <span class="badge bg-secondary">@Model.Room</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">Chưa cập nhật</span>
+                                    }
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-4 fw-bold">Lịch học:</div>
+                                <div class="col-sm-8">
+                                    @if (!string.IsNullOrEmpty(Model.Schedule))
+                                    {
+                                        @Model.Schedule
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">Chưa cập nhật</span>
+                                    }
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-4 fw-bold">Thời gian:</div>
+                                <div class="col-sm-8">
+                                    <div>
+                                        <div><strong>Bắt đầu:</strong> @Model.StartDate.ToString("dd/MM/yyyy")</div>
+                                        <div><strong>Kết thúc:</strong> @Model.EndDate.ToString("dd/MM/yyyy")</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-4 fw-bold">Trạng thái:</div>
+                                <div class="col-sm-8">
+                                    @if (Model.IsActive)
+                                    {
+                                        <span class="badge bg-success">Hoạt động</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-secondary">Không hoạt động</span>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enrolled Students -->
+                <div class="col-md-6">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-info text-white">
+                            <h5 class="mb-0"><i class="fas fa-users"></i> Sinh viên đăng ký</h5>
+                        </div>
+                        <div class="card-body">
+                            @if (Model.Enrollments.Any())
+                            {
+                                <div class="table-responsive">
+                                    <table class="table table-sm">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Sinh viên</th>
+                                                <th>Ngày ĐK</th>
+                                                <th>Trạng thái</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var enrollment in Model.Enrollments.OrderBy(e => e.Student.Name))
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="avatar-sm bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-2">
+                                                                <i class="fas fa-user"></i>
+                                                            </div>
+                                                            <div>
+                                                                <div class="fw-bold">@enrollment.Student.Name</div>
+                                                                <small class="text-muted">@enrollment.Student.Email</small>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>@enrollment.EnrollmentDate.ToString("dd/MM/yyyy")</td>
+                                                    <td>
+                                                        @switch (enrollment.Status)
+                                                        {
+                                                            case "Active": <span class="badge bg-primary">Đang học</span>; break;
+                                                            case "Completed": <span class="badge bg-success">Hoàn thành</span>; break;
+                                                            case "Dropped": <span class="badge bg-danger">Bỏ học</span>; break;
+                                                            default: <span class="badge bg-secondary">@enrollment.Status</span>; break;
+                                                        }
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="text-muted small">
+                                    <i class="fas fa-info-circle"></i> Tổng cộng: @Model.Enrollments.Count() sinh viên đăng ký
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="text-center py-3">
+                                    <i class="fas fa-users fa-2x text-muted mb-2"></i>
+                                    <p class="text-muted mb-0">Chưa có sinh viên nào đăng ký lớp học phần này</p>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,166 @@
+@model StudentManagement.Models.Instructor
+
+@{
+    ViewData["Title"] = "Chi tiết Giảng viên";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2><i class="fas fa-chalkboard-teacher"></i> Chi tiết Giảng viên</h2>
+                <div>
+                    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">
+                        <i class="fas fa-edit"></i> Chỉnh sửa
+                    </a>
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Quay lại
+                    </a>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Instructor Information -->
+                <div class="col-md-6">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0"><i class="fas fa-user"></i> Thông tin Cá nhân</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row mb-3">
+                                <div class="col-sm-4 fw-bold">Họ tên:</div>
+                                <div class="col-sm-8">@Model.FullName</div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-4 fw-bold">Email:</div>
+                                <div class="col-sm-8">
+                                    <a href="mailto:@Model.Email" class="text-decoration-none">
+                                        <i class="fas fa-envelope me-1"></i>@Model.Email
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-4 fw-bold">Số điện thoại:</div>
+                                <div class="col-sm-8">
+                                    @if (!string.IsNullOrEmpty(Model.PhoneNumber))
+                                    {
+                                        <a href="tel:@Model.PhoneNumber" class="text-decoration-none">
+                                            <i class="fas fa-phone me-1"></i>@Model.PhoneNumber
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">Chưa cập nhật</span>
+                                    }
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-4 fw-bold">Khoa:</div>
+                                <div class="col-sm-8">
+                                    @if (!string.IsNullOrEmpty(Model.Department))
+                                    {
+                                        <span class="badge bg-info">@Model.Department</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">Chưa cập nhật</span>
+                                    }
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-4 fw-bold">Chuyên môn:</div>
+                                <div class="col-sm-8">
+                                    @if (!string.IsNullOrEmpty(Model.Specialization))
+                                    {
+                                        @Model.Specialization
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">Chưa cập nhật</span>
+                                    }
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-4 fw-bold">Ngày thuê:</div>
+                                <div class="col-sm-8">@Model.HireDate.ToString("dd/MM/yyyy")</div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-sm-4 fw-bold">Trạng thái:</div>
+                                <div class="col-sm-8">
+                                    @if (Model.IsActive)
+                                    {
+                                        <span class="badge bg-success">Hoạt động</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-secondary">Không hoạt động</span>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Class Sections -->
+                <div class="col-md-6">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-info text-white">
+                            <h5 class="mb-0"><i class="fas fa-chalkboard"></i> Lớp học phần</h5>
+                        </div>
+                        <div class="card-body">
+                            @if (Model.ClassSections.Any())
+                            {
+                                <div class="table-responsive">
+                                    <table class="table table-sm">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Mã lớp</th>
+                                                <th>Khóa học</th>
+                                                <th>Sức chứa</th>
+                                                <th>Trạng thái</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var section in Model.ClassSections.OrderBy(cs => cs.SectionCode))
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        <span class="badge bg-primary">@(section.SectionCode)</span>
+                                                    </td>
+                                                    <td>@(section.Course.Title)</td>
+                                                    <td>
+                                                        <span class="text-muted">@(section.CurrentEnrollment)/@(section.MaxCapacity)</span>
+                                                    </td>
+                                                    <td>
+                                                        @if (section.IsActive)
+                                                        {
+                                                            <span class="badge bg-success">Hoạt động</span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <span class="badge bg-secondary">Không hoạt động</span>
+                                                        }
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="text-muted small">
+                                    <i class="fas fa-info-circle"></i> Tổng cộng: @Model.ClassSections.Count() lớp học phần
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="text-center py-3">
+                                    <i class="fas fa-chalkboard fa-2x text-muted mb-2"></i>
+                                    <p class="text-muted mb-0">Giảng viên chưa được phân công lớp học phần nào</p>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
