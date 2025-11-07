@@ -1,14 +1,6 @@
 @model IEnumerable<Student>
 
-@* Các cách khác nhau để tạo link Create Student *@
-@* Cách 1: HTML thuần - viết trực tiếp href *@
-@*<a href="/Admin/Student/Add" class="btn btn-primary">Create Student</a>*@
-
-@* Cách 2: Html Tag Helper - asp-action để link tới action theo tên *@
 <a asp-action="Create" class="btn btn-primary">Create Student</a>
-
-@* Cách 3: Html Tag Helper - asp-route để gọi route theo tên *@
-@*<a asp-route="adminStudentAdd" class="btn btn-primary">Create Student</a>*@
 <table class="table table-striped">
     <thead>
         <tr>
