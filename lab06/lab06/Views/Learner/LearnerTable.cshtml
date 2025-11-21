@@ -1,0 +1,47 @@
+@model IEnumerable<Learner>
+
+<!-- PartialView hiển thị bảng danh sách học viên -->
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Mã</th>
+            <th>Tên</th>
+            <th>Họ</th>
+            <th>Ngành</th>
+            <th>Ngày Nhập Học</th>
+            <th>Chức năng</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Duyệt qua từng học viên trong Model để hiển thị -->
+        @foreach (var s in Model)
+        {
+            <tr>
+                <td>@s.LearnerID</td>
+                <td>@s.FirstMidName</td>
+                <td>@s.LastName</td>
+                <td>@s.Major?.MajorName</td>
+                <td>@s.EnrollmentDate</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@s.LearnerID">Edit</a> /
+                    <a asp-action="Delete" asp-route-id="@s.LearnerID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Thêm thanh nav-phân trang -->
+<ul class="pagination">
+    <!-- Duyệt qua từng trang để tạo các link phân trang -->
+    @for (int i = 1; i <= ViewBag.pageNum; i++)
+    {
+        <!-- Mỗi page-item đại diện cho một trang -->
+        <li class="page-item" page="@i"
+            @(ViewBag.mid != null ? Html.Raw("mid=\"" + ViewBag.mid + "\"") : Html.Raw(""))
+            @(ViewBag.keyword != null ? Html.Raw("keyword=\"" + ViewBag.keyword + "\"") : Html.Raw(""))>
+            <a class="page-link">@i</a>
+        </li>
+    }
+</ul>
+

@@ -1,0 +1,14 @@
+@model IEnumerable<Major>
+
+<!-- ViewComponent hiển thị danh sách các chuyên ngành để lọc -->
+<ul class="nav nav-pills">
+    @foreach (var major in Model)
+    {
+        <!-- Mỗi chuyên ngành là một tab có thể click để lọc -->
+        <!-- Sử dụng class nav-link active khi được chọn (có thể thêm logic highlight) -->
+        <li class="nav-item" id="@major.MajorID" style="cursor: pointer;">
+            <a class="nav-link">@major.MajorName</a>
+        </li>
+    }
+</ul>
+
